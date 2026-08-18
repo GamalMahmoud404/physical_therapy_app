@@ -61,8 +61,8 @@ export default function LanguageSwitcher({
         transition
         hover:bg-gray-100
         hover:text-blue-600
-        dark:text-slate-300
-        dark:hover:bg-slate-800
+        dark:text-neutral-300
+        dark:hover:bg-neutral-800
         dark:hover:text-sky-400
       "
     >

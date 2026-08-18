@@ -73,7 +73,7 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
           h-[100svh]
           w-full
           overflow-hidden
-          bg-gray-900
+          bg-neutral-900
         "
       >
 
@@ -140,8 +140,8 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
                 to-transparent
                 md:w-[70%]
                 rtl:bg-gradient-to-l
-                dark:from-slate-950
-                dark:via-slate-950/90
+                dark:from-neutral-950
+                dark:via-neutral-950/90
               "
             />
 
@@ -213,7 +213,7 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
                       text-[15px]
                       leading-7
                       text-gray-600
-                      dark:text-slate-300
+                      dark:text-neutral-300
                       sm:mb-8
                       sm:text-base
                       sm:leading-8
@@ -250,7 +250,7 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
                       hover:text-white
                       dark:border-sky-400
                       dark:text-sky-300
-                      dark:hover:text-slate-950
+                      dark:hover:text-neutral-950
                     "
                   >
 

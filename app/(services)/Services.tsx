@@ -37,7 +37,7 @@ export default function Services({ dict }: { dict: Dictionary }) {
         bg-slate-50
         px-4
         py-24
-        dark:bg-slate-950
+        dark:bg-neutral-950
       "
     >
       {/* ================= DECORATION ================= */}
@@ -95,8 +95,8 @@ export default function Services({ dict }: { dict: Dictionary }) {
               px-5
               py-2
               shadow-sm
-              dark:border-sky-900
-              dark:bg-slate-900
+              dark:border-neutral-800
+              dark:bg-neutral-900
             "
           >
             <span className="relative flex h-2.5 w-2.5">
@@ -142,7 +142,7 @@ export default function Services({ dict }: { dict: Dictionary }) {
               leading-tight
               text-gray-800
               md:text-5xl
-              dark:text-slate-100
+              dark:text-neutral-100
             "
           >
             {t.titleBefore}{" "}
@@ -171,7 +171,7 @@ export default function Services({ dict }: { dict: Dictionary }) {
 
           {/* DESCRIPTION */}
 
-          <p className="mt-5 text-[17px] leading-9 text-gray-500 dark:text-slate-400">
+          <p className="mt-5 text-[17px] leading-9 text-gray-500 dark:text-neutral-400">
             {t.description}
           </p>
 
@@ -205,8 +205,8 @@ export default function Services({ dict }: { dict: Dictionary }) {
                 border-slate-100
                 bg-white
                 text-start
-                dark:border-slate-800
-                dark:bg-slate-900
+                dark:border-neutral-800
+                dark:bg-neutral-900
                 shadow-[1px_1px_20px_-6px_rgb(196,196,196)]
                 transition-all
                 duration-500
@@ -312,8 +312,8 @@ export default function Services({ dict }: { dict: Dictionary }) {
                       absolute
                       inset-0
                       bg-gradient-to-t
-                      from-gray-900/60
-                      via-gray-900/10
+                      from-neutral-900/60
+                      via-neutral-900/10
                       to-transparent
                     "
                   />
@@ -338,8 +338,8 @@ export default function Services({ dict }: { dict: Dictionary }) {
                     border-slate-100
                     bg-white
                     text-2xl
-                    dark:border-slate-700
-                    dark:bg-slate-800
+                    dark:border-neutral-700
+                    dark:bg-neutral-800
                     shadow-[0_10px_25px_-10px_rgba(15,23,42,0.5)]
                     transition-transform
                     duration-500
@@ -364,7 +364,7 @@ export default function Services({ dict }: { dict: Dictionary }) {
                     transition-colors
                     duration-300
                     group-hover:text-sky-600
-                    dark:text-slate-100
+                    dark:text-neutral-100
                     dark:group-hover:text-sky-400
                   "
                 >
@@ -373,7 +373,7 @@ export default function Services({ dict }: { dict: Dictionary }) {
 
                 {/* DESCRIPTION */}
 
-                <p className="text-[15px] leading-8 text-gray-500 dark:text-slate-400">
+                <p className="text-[15px] leading-8 text-gray-500 dark:text-neutral-400">
                   {service.description}
                 </p>
 

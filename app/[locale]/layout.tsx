@@ -133,8 +133,8 @@ export default async function RootLayout({
           bg-white
           font-cairo
           text-slate-900
-          dark:bg-slate-950
-          dark:text-slate-100
+          dark:bg-neutral-950
+          dark:text-neutral-100
         `}
       >
         {/* رابط التخطي — يظهر عند التنقل بلوحة المفاتيح فقط */}

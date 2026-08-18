@@ -31,9 +31,9 @@ export default function Contact({
         to-white
         px-4
         py-24
-        dark:from-slate-950
-        dark:via-sky-950/30
-        dark:to-slate-950
+        dark:from-neutral-950
+        dark:via-neutral-900/30
+        dark:to-neutral-950
       "
     >
 
@@ -99,8 +99,8 @@ export default function Contact({
               py-2
               shadow-sm
               backdrop-blur-sm
-              dark:border-sky-900
-              dark:bg-slate-900/80
+              dark:border-neutral-800
+              dark:bg-neutral-900/80
             "
           >
             <span className="relative flex h-2.5 w-2.5">
@@ -155,7 +155,7 @@ export default function Contact({
               leading-tight
               text-gray-800
               md:text-5xl
-              dark:text-slate-100
+              dark:text-neutral-100
             "
           >
             {t.titleBefore}{" "}
@@ -191,7 +191,7 @@ export default function Contact({
               text-[17px]
               leading-9
               text-gray-500
-              dark:text-slate-400
+              dark:text-neutral-400
             "
           >
             {t.description}

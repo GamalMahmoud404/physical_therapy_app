@@ -38,19 +38,19 @@ const fieldClasses = `
   focus:bg-white
   focus:ring-4
   focus:ring-sky-100
-  dark:border-slate-700
-  dark:bg-slate-800/70
-  dark:text-slate-100
-  dark:placeholder:text-slate-500
+  dark:border-neutral-700
+  dark:bg-neutral-800/70
+  dark:text-neutral-100
+  dark:placeholder:text-neutral-500
   dark:focus:border-sky-500
-  dark:focus:bg-slate-800
+  dark:focus:bg-neutral-800
   dark:focus:ring-sky-900/50
   disabled:cursor-not-allowed
   disabled:opacity-60
 `;
 
 const labelClasses =
-  "mb-2 block text-sm font-semibold text-gray-700 dark:text-slate-300";
+  "mb-2 block text-sm font-semibold text-gray-700 dark:text-neutral-300";
 
 const fieldIconClasses = `
   pointer-events-none
@@ -59,7 +59,7 @@ const fieldIconClasses = `
   text-gray-400
   transition-colors
   peer-focus:text-sky-500
-  dark:text-slate-400
+  dark:text-neutral-400
   dark:peer-focus:text-sky-400
 `;
 
@@ -182,8 +182,8 @@ export default function ContactForm({
         bg-white
         p-6
         shadow-xl
-        dark:border-slate-800
-        dark:bg-slate-900
+        dark:border-neutral-800
+        dark:bg-neutral-900
         md:p-10
         lg:col-span-3
       "
@@ -206,7 +206,7 @@ export default function ContactForm({
             rounded-2xl
             bg-sky-50
             text-sky-600
-            dark:bg-sky-950
+            dark:bg-neutral-800
             dark:text-sky-400
           "
         >
@@ -214,11 +214,11 @@ export default function ContactForm({
         </span>
 
         <div>
-          <h3 className="text-2xl font-bold text-gray-800 dark:text-slate-100">
+          <h3 className="text-2xl font-bold text-gray-800 dark:text-neutral-100">
             {t.formHeading}
           </h3>
 
-          <p className="mt-2 text-sm leading-7 text-gray-500 dark:text-slate-400">
+          <p className="mt-2 text-sm leading-7 text-gray-500 dark:text-neutral-400">
             {t.formDescription}
           </p>
         </div>
@@ -313,7 +313,7 @@ export default function ContactForm({
           <label htmlFor="email" className={labelClasses}>
             {t.emailFieldLabel}
 
-            <span className="ms-2 text-xs font-normal text-gray-400 dark:text-slate-400">
+            <span className="ms-2 text-xs font-normal text-gray-400 dark:text-neutral-400">
               {t.optional}
             </span>
           </label>
@@ -370,7 +370,7 @@ export default function ContactForm({
             </span>
           </div>
 
-          <p className="mt-2 text-xs text-gray-400 dark:text-slate-400">
+          <p className="mt-2 text-xs text-gray-400 dark:text-neutral-400">
             {t.charCount.replace("{count}", String(formData.message.length))}
           </p>
         </div>
@@ -484,7 +484,7 @@ export default function ContactForm({
         {/* NOTE */}
         {/* ========================= */}
 
-        <p className="text-center text-xs leading-6 text-gray-400 dark:text-slate-400">
+        <p className="text-center text-xs leading-6 text-gray-400 dark:text-neutral-400">
           {t.requiredNoteBefore}
           <span className="mx-1 text-red-500">*</span>
           {t.requiredNoteAfter}

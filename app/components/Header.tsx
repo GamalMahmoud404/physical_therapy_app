@@ -44,8 +44,8 @@ export default function Header({
         border-gray-200
         bg-white
         shadow-sm
-        dark:border-slate-800
-        dark:bg-slate-900
+        dark:border-neutral-800
+        dark:bg-neutral-900
       "
     >
 
@@ -113,7 +113,7 @@ export default function Header({
                 transition
                 duration-300
                 hover:text-blue-600
-                dark:text-slate-300
+                dark:text-neutral-300
                 dark:hover:text-sky-400
               "
             >
@@ -153,8 +153,8 @@ export default function Header({
               hover:bg-gray-100
               hover:text-blue-600
               md:hidden
-              dark:text-slate-300
-              dark:hover:bg-slate-800
+              dark:text-neutral-300
+              dark:hover:bg-neutral-800
               dark:hover:text-sky-400
             "
           >
@@ -179,8 +179,8 @@ export default function Header({
           transition-all
           duration-300
           md:hidden
-          dark:border-slate-800
-          dark:bg-slate-900
+          dark:border-neutral-800
+          dark:bg-neutral-900
           ${
             isOpen
               ? "max-h-96 opacity-100"
@@ -210,12 +210,12 @@ export default function Header({
                 duration-300
                 hover:bg-gray-50
                 hover:text-blue-600
-                dark:text-slate-300
-                dark:hover:bg-slate-800
+                dark:text-neutral-300
+                dark:hover:bg-neutral-800
                 dark:hover:text-sky-400
                 ${
                   index < links.length - 1
-                    ? "border-b border-gray-100 dark:border-slate-800"
+                    ? "border-b border-gray-100 dark:border-neutral-800"
                     : ""
                 }
               `}

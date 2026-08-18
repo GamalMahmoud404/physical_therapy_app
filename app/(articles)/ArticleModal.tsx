@@ -124,7 +124,7 @@ export default function ArticleModal({
         animate-overlay-in
         items-center
         justify-center
-        bg-gray-900/70
+        bg-neutral-900/70
         p-3
         backdrop-blur-md
         md:p-6
@@ -152,8 +152,8 @@ export default function ArticleModal({
           border
           border-white/60
           bg-white
-          dark:border-slate-700
-          dark:bg-slate-900
+          dark:border-neutral-700
+          dark:bg-neutral-900
           shadow-[0_30px_100px_-20px_rgba(15,23,42,0.6)]
           outline-none
         "
@@ -171,10 +171,10 @@ export default function ArticleModal({
             from-sky-50
             via-white
             to-white
-            dark:border-slate-800
-            dark:from-sky-950/50
-            dark:via-slate-900
-            dark:to-slate-900
+            dark:border-neutral-800
+            dark:from-neutral-900/50
+            dark:via-neutral-900
+            dark:to-neutral-900
             px-6
             py-7
             md:px-10
@@ -219,9 +219,9 @@ export default function ArticleModal({
               text-2xl
               leading-none
               text-gray-500
-              dark:border-slate-700
-              dark:bg-slate-800
-              dark:text-slate-400
+              dark:border-neutral-700
+              dark:bg-neutral-800
+              dark:text-neutral-400
               shadow-sm
               transition-all
               duration-300
@@ -251,8 +251,8 @@ export default function ArticleModal({
                 text-xs
                 font-bold
                 text-sky-600
-                dark:border-sky-800
-                dark:bg-sky-950
+                dark:border-neutral-700
+                dark:bg-neutral-800
                 dark:text-sky-400
               "
             >
@@ -277,7 +277,7 @@ export default function ArticleModal({
 
             {/* META */}
 
-            <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-gray-400 dark:text-slate-400">
+            <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-gray-400 dark:text-neutral-400">
               <span>{article.date}</span>
 
               <span className="h-1 w-1 rounded-full bg-gray-300" />
@@ -341,9 +341,9 @@ export default function ArticleModal({
                     text-sky-600
                     ring-1
                     ring-sky-100
-                    dark:bg-sky-950
+                    dark:bg-neutral-800
                     dark:text-sky-400
-                    dark:ring-sky-800
+                    dark:ring-neutral-700
                   "
                 >
                   {index + 1}
@@ -354,8 +354,8 @@ export default function ArticleModal({
                 <p
                   className={
                     index === 0
-                      ? "text-lg font-medium leading-9 text-gray-800 md:text-xl md:leading-10 dark:text-slate-100"
-                      : "text-base leading-9 text-gray-600 md:text-[17px] md:leading-10 dark:text-slate-300"
+                      ? "text-lg font-medium leading-9 text-gray-800 md:text-xl md:leading-10 dark:text-neutral-100"
+                      : "text-base leading-9 text-gray-600 md:text-[17px] md:leading-10 dark:text-neutral-300"
                   }
                 >
                   {paragraph}
@@ -395,8 +395,8 @@ export default function ArticleModal({
             px-6
             py-5
             md:px-10
-            dark:border-slate-800
-            dark:bg-slate-950/70
+            dark:border-neutral-800
+            dark:bg-neutral-950/70
           "
         >
           <div className="flex flex-wrap items-center justify-between gap-3">
@@ -429,13 +429,13 @@ export default function ArticleModal({
                   disabled:opacity-40
                   disabled:hover:border-gray-200
                   disabled:hover:text-gray-600
-                  dark:border-slate-700
-                  dark:bg-slate-800
-                  dark:text-slate-300
+                  dark:border-neutral-700
+                  dark:bg-neutral-800
+                  dark:text-neutral-300
                   dark:hover:border-sky-500
                   dark:hover:text-sky-400
-                  dark:disabled:hover:border-slate-700
-                  dark:disabled:hover:text-slate-300
+                  dark:disabled:hover:border-neutral-700
+                  dark:disabled:hover:text-neutral-300
                 "
               >
                 <span aria-hidden="true">{t.previousArrow}</span>
@@ -468,13 +468,13 @@ export default function ArticleModal({
                   disabled:opacity-40
                   disabled:hover:border-gray-200
                   disabled:hover:text-gray-600
-                  dark:border-slate-700
-                  dark:bg-slate-800
-                  dark:text-slate-300
+                  dark:border-neutral-700
+                  dark:bg-neutral-800
+                  dark:text-neutral-300
                   dark:hover:border-sky-500
                   dark:hover:text-sky-400
-                  dark:disabled:hover:border-slate-700
-                  dark:disabled:hover:text-slate-300
+                  dark:disabled:hover:border-neutral-700
+                  dark:disabled:hover:text-neutral-300
                 "
               >
                 {t.next}
@@ -489,7 +489,7 @@ export default function ArticleModal({
               onClick={onClose}
               className="
                 rounded-xl
-                bg-gray-900
+                bg-neutral-900
                 px-7
                 py-3
                 text-sm

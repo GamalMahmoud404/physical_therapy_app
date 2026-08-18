@@ -11,7 +11,7 @@ export default function Footer({ dict }: { dict: Dictionary }) {
   ];
 
   return (
-    <footer className="bg-gray-800 text-white dark:bg-slate-900">
+    <footer className="bg-neutral-800 text-white dark:bg-neutral-900">
 
       <div className="mx-auto w-full max-w-7xl px-6 py-10">
 
@@ -24,7 +24,7 @@ export default function Footer({ dict }: { dict: Dictionary }) {
               {dict.footer.brandHeading}
             </h2>
 
-            <p className="mt-4 max-w-sm text-sm leading-7 text-gray-300">
+            <p className="mt-4 max-w-sm text-sm leading-7 text-neutral-300">
               {dict.footer.brandDescription}
             </p>
           </div>
@@ -59,7 +59,7 @@ export default function Footer({ dict }: { dict: Dictionary }) {
               {dict.footer.contactHeading}
             </h3>
 
-            <div className="space-y-3 text-sm text-gray-300">
+            <div className="space-y-3 text-sm text-neutral-300">
 
               <p>
                 {dict.footer.emailLabel}
@@ -109,12 +109,12 @@ export default function Footer({ dict }: { dict: Dictionary }) {
           className="
             mt-10
             border-t
-            border-gray-700
+            border-neutral-700
             pt-6
             text-center
             text-sm
-            text-gray-400
-            dark:border-slate-800
+            text-neutral-400
+            dark:border-neutral-800
           "
         >
           <p>

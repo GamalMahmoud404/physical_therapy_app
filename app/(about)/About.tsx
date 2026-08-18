@@ -46,10 +46,10 @@ export default function About({ dict }: { dict: Dictionary }) {
           shadow-[1px_1px_20px_-4px_rgb(196,196,196)]
           md:w-[91.666667%]
           md:px-12
-          dark:from-sky-950/40
-          dark:via-slate-900
-          dark:to-slate-900
-          dark:shadow-[1px_1px_24px_-4px_rgb(2,6,23)]
+          dark:from-neutral-900/40
+          dark:via-neutral-900
+          dark:to-neutral-900
+          dark:shadow-[1px_1px_24px_-4px_rgb(0,0,0)]
         "
       >
 
@@ -123,8 +123,8 @@ export default function About({ dict }: { dict: Dictionary }) {
                   absolute
                   inset-0
                   bg-gradient-to-t
-                  from-slate-900/85
-                  via-slate-900/15
+                  from-neutral-900/85
+                  via-neutral-900/15
                   to-transparent
                 "
               />
@@ -215,7 +215,7 @@ export default function About({ dict }: { dict: Dictionary }) {
                 leading-tight
                 text-gray-800
                 md:text-4xl
-                dark:text-slate-100
+                dark:text-neutral-100
               "
             >
               {t.doctorHeading}
@@ -234,7 +234,7 @@ export default function About({ dict }: { dict: Dictionary }) {
                     leading-9
                     text-[rgb(98,98,98)]
                     md:text-[17px]
-                    dark:text-slate-400
+                    dark:text-neutral-400
                   "
                 >
                   {paragraph}
@@ -256,7 +256,7 @@ export default function About({ dict }: { dict: Dictionary }) {
                     border-t
                     border-slate-100
                     py-4
-                    dark:border-slate-800
+                    dark:border-neutral-800
                   "
                 >
                   <span
@@ -273,14 +273,14 @@ export default function About({ dict }: { dict: Dictionary }) {
                       text-[11px]
                       font-black
                       text-sky-600
-                      dark:bg-sky-950
+                      dark:bg-neutral-800
                       dark:text-sky-400
                     "
                   >
                     ✓
                   </span>
 
-                  <span className="text-[15px] leading-7 text-[rgb(98,98,98)] dark:text-slate-400">
+                  <span className="text-[15px] leading-7 text-[rgb(98,98,98)] dark:text-neutral-400">
                     {credential}
                   </span>
                 </li>
@@ -309,7 +309,7 @@ export default function About({ dict }: { dict: Dictionary }) {
                 duration-300
                 hover:bg-sky-700
                 dark:bg-sky-500
-                dark:text-slate-950
+                dark:text-neutral-950
                 dark:hover:bg-sky-400
               "
             >
@@ -357,8 +357,8 @@ export default function About({ dict }: { dict: Dictionary }) {
           shadow-[0_24px_60px_-32px_rgba(15,23,42,0.35)]
           md:w-[91.666667%]
           md:p-6
-          dark:from-slate-800
-          dark:to-slate-900
+          dark:from-neutral-800
+          dark:to-neutral-900
           dark:ring-white/10
         "
       >
@@ -495,7 +495,7 @@ export default function About({ dict }: { dict: Dictionary }) {
                 sm:py-10
                 md:px-10
                 md:py-12
-                dark:bg-slate-950/60
+                dark:bg-neutral-950/60
                 dark:ring-white/10
               "
             >
@@ -540,14 +540,14 @@ export default function About({ dict }: { dict: Dictionary }) {
                   font-normal
                   leading-[1.85]
                   text-slate-600
-                  dark:text-slate-400
+                  dark:text-neutral-400
                   sm:text-[17px]
                   sm:leading-[2.1]
                   md:text-[18px]
                 "
               >
 
-                <span className="font-extrabold text-slate-900 dark:text-slate-100">
+                <span className="font-extrabold text-slate-900 dark:text-neutral-100">
                   {t.welcome.lead}
                 </span>{" "}
 
@@ -586,7 +586,7 @@ export default function About({ dict }: { dict: Dictionary }) {
                   hover:shadow-sky-600/20
                   dark:border-sky-400
                   dark:text-sky-300
-                  dark:hover:text-slate-950
+                  dark:hover:text-neutral-950
                 "
               >
 
