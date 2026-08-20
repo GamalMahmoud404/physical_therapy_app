@@ -1,13 +1,24 @@
 // =========================================================
 // ثوابت الموقع المستخدمة في الـ SEO
 //
-// ⚠️ اضبط NEXT_PUBLIC_SITE_URL في .env بعنوان النطاق الحقيقي قبل النشر.
-// بدونه ستُبنى الروابط المطلقة (canonical / OG / sitemap) على العنوان
-// الافتراضي أدناه وهو غير صحيح في الإنتاج.
+// عنوان الموقع يُقرأ بالترتيب التالي:
+//   1. NEXT_PUBLIC_SITE_URL — اضبطه يدويًا عند استخدام نطاق خاص.
+//   2. VERCEL_PROJECT_PRODUCTION_URL — نطاق الإنتاج الذي توفّره Vercel
+//      تلقائيًا، فتخرج الروابط المطلقة صحيحة حتى بدون ضبط أي متغيّر.
+//   3. localhost — للتطوير المحلي فقط.
+//
+// ⚠️ لو خرج canonical على localhost في الإنتاج فجوجل يرى رابطًا لا يصله،
+// وهو ما يمنع فهرسة الموقع بالكامل.
 // =========================================================
 
+const vercelProductionUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : undefined;
+
 export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  vercelProductionUrl ??
+  "http://localhost:3000"
 ).replace(/\/$/, "");
 
 // ⚠️ قيم مؤقتة — استبدلها ببيانات العيادة الحقيقية
