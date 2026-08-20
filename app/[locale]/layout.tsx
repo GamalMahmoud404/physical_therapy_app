@@ -5,6 +5,7 @@ import { cookies } from "next/headers";
 
 import "./globals.css";
 
+import AosProvider from "../components/AosProvider";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -159,6 +160,9 @@ export default async function RootLayout({
         >
           {dict.nav.skipToContent}
         </a>
+
+        {/* يهيّئ حركات data-aos المنتشرة في الأقسام — لا يرسم شيئًا */}
+        <AosProvider />
 
         <Header locale={locale} dict={dict.nav} />
 
