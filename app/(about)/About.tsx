@@ -18,18 +18,11 @@ export default function About({ dict }: { dict: Dictionary }) {
       id="about"
       aria-label={t.sectionLabel}
       className="w-full pt-20 pb-20"
-      data-aos="zoom-in"
-      data-aos-duration="1000"
-      data-aos-once="true"
     >
 
       {/* ================= SECTION 1 - DOCTOR ================= */}
 
       <section
-        data-aos="zoom-in"
-        data-aos-duration="1000"
-        data-aos-delay="100"
-        data-aos-once="true"
         className="
           relative
           mx-auto
@@ -339,10 +332,6 @@ export default function About({ dict }: { dict: Dictionary }) {
       {/* ================= SECTION 2 - WELCOME ================= */}
 
       <section
-        data-aos="zoom-in"
-        data-aos-duration="1000"
-        data-aos-delay="100"
-        data-aos-once="true"
         className="
           mx-auto
           mt-10
@@ -381,10 +370,6 @@ export default function About({ dict }: { dict: Dictionary }) {
           {/* ================================================= */}
 
           <div
-            data-aos="fade-left"
-            data-aos-duration="1200"
-            data-aos-delay="200"
-            data-aos-once="true"
             className="
               relative
               mb-3
@@ -401,7 +386,7 @@ export default function About({ dict }: { dict: Dictionary }) {
             {/* ================= ROTATING IMAGE ================= */}
 
             <div
-              data-aos="zoom-in"
+              data-aos="fade"
               data-aos-duration="1200"
               data-aos-delay="400"
               data-aos-once="true"
@@ -464,10 +449,6 @@ export default function About({ dict }: { dict: Dictionary }) {
           {/* ================================================= */}
 
           <div
-            data-aos="fade-right"
-            data-aos-duration="1200"
-            data-aos-delay="300"
-            data-aos-once="true"
             className="
               mb-3
               w-full

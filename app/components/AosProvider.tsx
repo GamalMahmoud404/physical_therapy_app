@@ -35,13 +35,22 @@ export default function AosProvider() {
         window.matchMedia("(prefers-reduced-motion: reduce)").matches,
     });
 
-    // مواضع العناصر تتغيّر بعد اكتمال تحميل الصور، فنعيد الحساب
-    // كي لا تبقى حركة عالقة عند موضع قديم.
-    const recalculate = () => AOS.refresh();
+    // مواضع العناصر تتغيّر بعد اكتمال تحميل الصور والخطوط، وAOS
+    // يحسب نقاط الإطلاق مرة واحدة عند التهيئة. بلا إعادة حساب تنطلق
+    // الحركات عند مواضع قديمة فتبدو متقطّعة.
+    let alive = true;
+
+    const recalculate = () => {
+      if (alive) AOS.refresh();
+    };
 
     window.addEventListener("load", recalculate);
+    document.fonts?.ready.then(recalculate);
 
-    return () => window.removeEventListener("load", recalculate);
+    return () => {
+      alive = false;
+      window.removeEventListener("load", recalculate);
+    };
   }, []);
 
   return null;
