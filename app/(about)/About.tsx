@@ -390,7 +390,7 @@ export default function About({ dict }: { dict: Dictionary }) {
               mb-3
               aspect-[1/0.83]
               w-full
-              -translate-y-6
+              lg:-translate-y-6
               lg:mt-5
               lg:aspect-auto
               lg:h-[450px]
@@ -411,7 +411,7 @@ export default function About({ dict }: { dict: Dictionary }) {
                 top-[9%]
                 z-[1]
                 w-1/2
-                -translate-y-4
+                lg:-translate-y-4
                 animate-[spin_20s_linear_infinite]
                 lg:top-10
               "
@@ -441,8 +441,8 @@ export default function About({ dict }: { dict: Dictionary }) {
                 top-[27%]
                 z-[2]
                 w-1/2
-                -translate-y-4
-                lg:top-30
+                lg:-translate-y-4
+                lg:top-35
               "
             >
               <Image
