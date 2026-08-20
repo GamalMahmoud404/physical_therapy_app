@@ -26,7 +26,7 @@ export default function About({ dict }: { dict: Dictionary }) {
       {/* ================= SECTION 1 - DOCTOR ================= */}
 
       <section
-        data-aos="fade-up"
+        data-aos="zoom-in"
         data-aos-duration="1000"
         data-aos-delay="100"
         data-aos-once="true"
@@ -339,7 +339,7 @@ export default function About({ dict }: { dict: Dictionary }) {
       {/* ================= SECTION 2 - WELCOME ================= */}
 
       <section
-        data-aos="fade-up"
+        data-aos="zoom-in"
         data-aos-duration="1000"
         data-aos-delay="100"
         data-aos-once="true"
@@ -530,7 +530,7 @@ export default function About({ dict }: { dict: Dictionary }) {
               {/* ================= DESCRIPTION ================= */}
 
               <p
-                data-aos="fade-up"
+                data-aos="zoom-in"
                 data-aos-duration="1000"
                 data-aos-delay="600"
                 data-aos-once="true"
