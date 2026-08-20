@@ -1,21 +1,32 @@
 import type { MetadataRoute } from "next";
 
-import { locales } from "./i18n/config";
-import { siteUrl } from "./seo/site";
-
-// كل لغة صفحة مستقلة، وكل واحدة تشير إلى الأخرى عبر alternates
-// حتى يفهم محرك البحث أنهما نسختان من نفس المحتوى لا محتوى مكرر.
-
 export default function sitemap(): MetadataRoute.Sitemap {
-  const languages = Object.fromEntries(
-    locales.map((locale) => [locale, `${siteUrl}/${locale}`]),
-  );
+  const baseUrl = "https://physical-therapy-app-sandy.vercel.app";
 
-  return locales.map((locale) => ({
-    url: `${siteUrl}/${locale}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 1,
-    alternates: { languages },
-  }));
+  return [
+    {
+      url: `${baseUrl}/ar`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/ar/about`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/ar/services`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/ar/contact`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+  ];
 }
