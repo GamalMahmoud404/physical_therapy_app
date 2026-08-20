@@ -24,7 +24,7 @@ export const ar = {
   },
 
   nav: {
-    brand: "د. عاطف ممدوح",
+    brand: "د. عاطف صبره",
     home: "الرئيسية",
     about: "من نحن",
     services: "خدماتنا",

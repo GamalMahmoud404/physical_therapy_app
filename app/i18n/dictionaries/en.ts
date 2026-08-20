@@ -25,7 +25,7 @@ export const en: Dictionary = {
   },
 
   nav: {
-    brand: "Dr. Atef Mamdouh",
+    brand: "Dr. Atef Sabra",
     home: "Home",
     about: "About",
     services: "Services",
