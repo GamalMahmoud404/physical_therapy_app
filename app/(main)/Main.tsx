@@ -88,6 +88,9 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
             className={`
               absolute
               inset-0
+              flex
+              flex-col
+              md:block
               transition-all
               duration-1000
               ease-in-out
@@ -109,7 +112,17 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
               كي يبقى المشهد في الجهة المقابلة للنص.
             */}
 
-            <div className="absolute inset-0">
+            <div
+              className="
+                relative
+                h-[40%]
+                w-full
+                shrink-0
+                md:absolute
+                md:inset-0
+                md:h-full
+              "
+            >
               <Image
                 src={slide.image}
                 alt={slide.title}
@@ -118,40 +131,70 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
                 sizes="100vw"
                 className="object-cover ltr:-scale-x-100"
               />
+
+              {/* ========================= */}
+              {/* DARK OVERLAY */}
+              {/* ========================= */}
+
+              <div className="absolute inset-0 bg-black/30" />
             </div>
-
-            {/* ========================= */}
-            {/* DARK OVERLAY */}
-            {/* ========================= */}
-
-            <div className="absolute inset-0 bg-black/30" />
-
-            {/* ========================= */}
-            {/* GRADIENT */}
-            {/* ========================= */}
-
-            <div
-              className="
-                absolute
-                inset-0
-                bg-gradient-to-r
-                from-white
-                via-white/90
-                to-transparent
-                md:w-[70%]
-                rtl:bg-gradient-to-l
-                dark:from-neutral-950
-                dark:via-neutral-950/90
-              "
-            />
 
             {/* ========================= */}
             {/* CONTENT */}
             {/* ========================= */}
 
-            <div className="relative z-10 flex h-full items-center pt-16 pb-20">
+            {/*
+              على الهاتف: لوح مستقل أسفل الصورة.
+              من md: يعود ليغطي الصورة بتدرّج من جهة النص.
+            */}
 
-              <div className="mx-auto w-full max-w-7xl px-6 md:px-28">
+            <div
+              className="
+                relative
+                flex
+                min-h-0
+                flex-1
+                items-center
+                py-8
+                md:absolute
+                md:inset-0
+                md:pt-16
+                md:pb-20
+              "
+            >
+
+              {/* خلفية مصمتة خلف النص — الهاتف فقط */}
+
+              <div
+                className="
+                  absolute
+                  inset-0
+                  bg-white
+                  md:hidden
+                  dark:bg-neutral-950
+                "
+              />
+
+              {/* تدرّج فوق الصورة — من md فقط */}
+
+              <div
+                className="
+                  absolute
+                  inset-0
+                  hidden
+                  bg-gradient-to-r
+                  from-white
+                  via-white/90
+                  to-transparent
+                  rtl:bg-gradient-to-l
+                  dark:from-neutral-950
+                  dark:via-neutral-950/90
+                  md:block
+                  md:w-[70%]
+                "
+              />
+
+              <div className="relative z-10 mx-auto w-full max-w-7xl px-6 md:px-28">
 
                 <div className="max-w-xl">
 
@@ -377,11 +420,11 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
         <div
           className="
             absolute
-            bottom-5
-            left-1/2
+            inset-x-0
+            bottom-[calc(60%+0.75rem)]
             z-20
             flex
-            -translate-x-1/2
+            justify-center
             gap-0
             md:bottom-6
           "
