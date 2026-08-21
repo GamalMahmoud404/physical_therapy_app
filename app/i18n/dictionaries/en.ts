@@ -85,7 +85,7 @@ export const en: Dictionary = {
     doctorHeading: "Meet the doctor",
     bookWithDoctor: "Book an appointment with the doctor",
     doctor: {
-      name: "Dr. Atef Mamdouh",
+      name: "Dr. Atef Sabra",
       title: "Physiotherapy & Rehabilitation Specialist",
       imageAlt:
         "The treating physician examining a patient's neck and shoulder",
