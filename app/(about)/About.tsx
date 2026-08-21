@@ -27,7 +27,7 @@ export default function About({ dict }: { dict: Dictionary }) {
           relative
           mx-auto
           mt-16
-          w-full
+          w-[calc(100%-2rem)]
           overflow-hidden
           rounded-[2rem]
           bg-gradient-to-b
@@ -88,11 +88,13 @@ export default function About({ dict }: { dict: Dictionary }) {
                 aspect-[3/4]
                 w-full
                 max-w-sm
+                lg:max-w-none
                 overflow-hidden
                 rounded-[1.75rem]
                 shadow-[0_25px_55px_-28px_rgba(15,23,42,0.55)]
                 ring-1
                 ring-slate-900/5
+                dark:ring-white/10
               "
             >
               <Image
@@ -225,7 +227,7 @@ export default function About({ dict }: { dict: Dictionary }) {
                     text-[16px]
                     font-normal
                     leading-9
-                    text-[rgb(98,98,98)]
+                    text-gray-500
                     md:text-[17px]
                     dark:text-neutral-400
                   "
@@ -238,7 +240,7 @@ export default function About({ dict }: { dict: Dictionary }) {
 
             {/* ================= CREDENTIALS ================= */}
 
-            <ul className="mt-8 grid gap-x-8 sm:grid-cols-2">
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {doctor.credentials.map((credential) => (
                 <li
                   key={credential}
@@ -246,10 +248,15 @@ export default function About({ dict }: { dict: Dictionary }) {
                     flex
                     items-center
                     gap-3
-                    border-t
-                    border-slate-100
-                    py-4
+                    rounded-xl
+                    sm:last:odd:col-span-2
+                    border
+                    border-slate-200/80
+                    bg-white/60
+                    px-4
+                    py-3.5
                     dark:border-neutral-800
+                    dark:bg-neutral-800/40
                   "
                 >
                   <span
@@ -273,7 +280,7 @@ export default function About({ dict }: { dict: Dictionary }) {
                     ✓
                   </span>
 
-                  <span className="text-[15px] leading-7 text-[rgb(98,98,98)] dark:text-neutral-400">
+                  <span className="text-[15px] leading-7 text-gray-500 dark:text-neutral-400">
                     {credential}
                   </span>
                 </li>
@@ -335,7 +342,7 @@ export default function About({ dict }: { dict: Dictionary }) {
         className="
           mx-auto
           mt-10
-          w-full
+          w-[calc(100%-2rem)]
           rounded-[2rem]
           bg-gradient-to-b
           from-[#f7f2ee]
