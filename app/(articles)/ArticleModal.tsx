@@ -270,6 +270,7 @@ export default function ArticleModal({
                 leading-[1.7]
                 text-gray-900
                 md:text-4xl
+                dark:text-white
               "
             >
               {article.title}
