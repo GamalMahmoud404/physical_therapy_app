@@ -75,12 +75,13 @@ export default function Services({ dict }: { dict: Dictionary }) {
       <div className="relative mx-auto max-w-6xl">
         {/* ================= HEADER ================= */}
 
-        <div
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          data-aos-once="true"
-          className="mx-auto mb-14 max-w-3xl text-center"
-        >
+          <div
+            data-aos="fade-up"
+            data-aos-duration="1000"
+              data-aos-once="true"
+              className="mx-auto mb-14 max-w-3xl text-center"
+              style={{ transition: "all 0.3s ease" }}
+          >
           {/* BADGE */}
 
           <span
@@ -216,6 +217,7 @@ export default function Services({ dict }: { dict: Dictionary }) {
                 dark:shadow-[0_12px_32px_-6px_rgba(0,0,0,0.9)]
                 dark:hover:shadow-[0_22px_50px_-10px_rgba(0,0,0,0.95)]
               "
+               style={{ transition: "all 0.3s ease" }}
             >
               {/* ================= MEDIA ================= */}
 

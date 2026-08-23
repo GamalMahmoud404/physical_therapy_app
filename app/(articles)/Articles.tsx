@@ -227,6 +227,7 @@ export default function ArticlesPage({ dict }: { dict: Dictionary["articles"] })
                   dark:shadow-[0_12px_32px_-6px_rgba(0,0,0,0.9)]
                   dark:hover:shadow-[0_22px_50px_-10px_rgba(0,0,0,0.95)]
                 "
+                 style={{ transition: "all 0.3s ease" }}
               >
                 {/* TOP ACCENT */}
 
