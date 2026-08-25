@@ -59,8 +59,6 @@ export default function Header({
         dark:shadow-black/40
       "
     >
-      {/* Accent top bar */}
-      <div className="h-1 w-full bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400" />
 
       {/* ================= HEADER ================= */}
 
