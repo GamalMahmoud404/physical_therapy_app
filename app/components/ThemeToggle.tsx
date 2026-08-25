@@ -99,6 +99,8 @@ export default function ThemeToggle({ dict }: { dict: Dictionary["nav"] }) {
       aria-label={label}
       title={label}
       className="
+        group
+        relative
         flex
         h-10
         w-10
@@ -107,12 +109,21 @@ export default function ThemeToggle({ dict }: { dict: Dictionary["nav"] }) {
         justify-center
         rounded-lg
         text-gray-700
-        transition
-        hover:bg-gray-100
-        hover:text-blue-600
+        transition-all
+        duration-300
+        hover:bg-gradient-to-br
+        hover:from-amber-100
+        hover:to-yellow-100
+        hover:text-amber-600
+        hover:shadow-md
+        hover:shadow-amber-300/30
         dark:text-neutral-300
-        dark:hover:bg-neutral-800
-        dark:hover:text-sky-400
+        dark:hover:bg-gradient-to-br
+        dark:hover:from-sky-900/50
+        dark:hover:to-cyan-900/50
+        dark:hover:text-sky-300
+        dark:hover:shadow-md
+        dark:hover:shadow-sky-500/20
       "
     >
       {/* الشمس — تظهر في الوضع الليلي (أي الضغط يعيدك للنهاري) */}
@@ -124,7 +135,16 @@ export default function ThemeToggle({ dict }: { dict: Dictionary["nav"] }) {
         stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
-        className="hidden h-5 w-5 dark:block"
+        className="
+          hidden
+          h-5
+          w-5
+          dark:block
+          transition-transform
+          duration-500
+          group-hover:rotate-90
+          group-active:scale-95
+        "
       >
         <circle cx="12" cy="12" r="4" />
         <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
@@ -140,7 +160,15 @@ export default function ThemeToggle({ dict }: { dict: Dictionary["nav"] }) {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="h-5 w-5 dark:hidden"
+        className="
+          h-5
+          w-5
+          dark:hidden
+          transition-transform
+          duration-500
+          group-hover:-rotate-12
+          group-active:scale-95
+        "
       >
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
       </svg>
