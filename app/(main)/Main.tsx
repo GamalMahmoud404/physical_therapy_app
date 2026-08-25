@@ -333,6 +333,7 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
                         flex
                         items-center
                         gap-2
+                        group-hover:text-white
                       "
                     >
                       {slide.button}
