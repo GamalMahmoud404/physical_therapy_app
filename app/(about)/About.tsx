@@ -49,21 +49,6 @@ export default function About({ dict }: { dict: Dictionary }) {
         "
       >
 
-        {/* ================= TOP ACCENT ================= */}
-
-        <span
-          aria-hidden="true"
-          className="
-            absolute
-            inset-x-0
-            top-0
-            h-1
-            bg-gradient-to-l
-            from-sky-400
-            via-sky-500
-            to-cyan-500
-          "
-        />
 
 
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-14">
