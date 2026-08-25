@@ -621,7 +621,7 @@ export default function About({ dict }: { dict: Dictionary }) {
                   "
                 >
                   {t.welcome.cta}
-                  <span className="group-hover:translate-x-1 transition-transform duration-300">
+                  <span className="transition-transform duration-300 rtl:rotate-180 ltr:group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
                     →
                   </span>
                 </span>
