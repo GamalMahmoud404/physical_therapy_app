@@ -270,10 +270,15 @@ export default function About({ dict }: { dict: Dictionary }) {
                     hover:shadow-md
                     hover:shadow-sky-200/30
                     dark:border-neutral-700/60
+                    dark:bg-gradient-to-r
                     dark:from-neutral-800/50
                     dark:to-neutral-800/20
-                    dark:hover:border-sky-600/40
-                    dark:hover:shadow-sky-900/30
+                    dark:hover:border-sky-500/60
+                    dark:hover:bg-gradient-to-r
+                    dark:hover:from-neutral-700/80
+                    dark:hover:to-sky-900/30
+                    dark:hover:shadow-md
+                    dark:hover:shadow-sky-500/20
                   "
                 >
                   <span
