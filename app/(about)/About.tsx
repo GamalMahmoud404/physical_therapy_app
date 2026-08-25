@@ -29,23 +29,19 @@ export default function About({ dict }: { dict: Dictionary }) {
           mt-16
           w-[calc(100%-2rem)]
           overflow-hidden
-          rounded-[2rem]
-          bg-gradient-to-b
-          from-sky-50/70
-          via-white
-          to-white
+          rounded-3xl
+          bg-white
+          backdrop-blur-xl
           px-6
           py-14
-          shadow-[1px_1px_20px_-4px_rgb(196,196,196)]
+          shadow-[0_8px_32px_rgba(31,38,135,0.15)]
+          ring-1
+          ring-white/20
           md:w-[91.666667%]
           md:px-12
-          dark:bg-gradient-to-br
-          dark:from-neutral-800/80
-          dark:via-neutral-800/60
-          dark:to-neutral-900/80
-          dark:shadow-[1px_1px_24px_-4px_rgb(0,0,0)]
-          dark:border
-          dark:border-neutral-700/50
+          dark:bg-neutral-900/50
+          dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)]
+          dark:ring-neutral-700/30
         "
       >
 
@@ -78,11 +74,11 @@ export default function About({ dict }: { dict: Dictionary }) {
                 max-w-sm
                 lg:max-w-none
                 overflow-hidden
-                rounded-[1.75rem]
-                shadow-[0_25px_55px_-28px_rgba(15,23,42,0.55)]
+                rounded-2xl
+                shadow-[0_20px_50px_rgba(15,23,42,0.3)]
                 ring-1
-                ring-slate-900/5
-                dark:ring-white/10
+                ring-sky-200/50
+                dark:ring-sky-500/20
               "
             >
               <Image
@@ -181,9 +177,9 @@ export default function About({ dict }: { dict: Dictionary }) {
             {/* ================= LABEL ================= */}
 
             <div className="mb-4 flex items-center gap-3">
-              <span className="h-px w-8 bg-sky-300 dark:bg-sky-500" />
+              <span className="h-1 w-8 bg-gradient-to-r from-sky-500 to-cyan-500 rounded-full" />
 
-              <span className="text-sm font-bold tracking-wide text-sky-600 dark:text-sky-400">
+              <span className="text-xs font-bold tracking-widest text-sky-600 dark:text-sky-400 uppercase">
                 {t.doctorLabel}
               </span>
             </div>
@@ -193,12 +189,17 @@ export default function About({ dict }: { dict: Dictionary }) {
 
             <h2
               className="
-                text-2xl
-                font-extrabold
+                text-3xl
+                font-bold
                 leading-tight
-                text-gray-800
+                bg-gradient-to-r
+                from-gray-900
+                to-gray-700
+                dark:from-neutral-50
+                dark:to-neutral-200
+                bg-clip-text
+                text-transparent
                 md:text-4xl
-                dark:text-neutral-100
               "
             >
               {t.doctorHeading}
@@ -240,30 +241,24 @@ export default function About({ dict }: { dict: Dictionary }) {
                     rounded-xl
                     sm:last:odd:col-span-2
                     border
-                    border-gray-200/60
-                    bg-gradient-to-r
-                    from-white
-                    to-sky-50/30
+                    border-gray-200/50
+                    bg-white/60
+                    backdrop-blur-sm
                     px-4
                     py-3.5
                     transition-all
                     duration-300
-                    hover:border-sky-300/60
-                    hover:bg-gradient-to-r
-                    hover:from-white
-                    hover:to-sky-100/50
+                    hover:border-sky-300/80
+                    hover:bg-sky-50/40
                     hover:shadow-md
-                    hover:shadow-sky-200/30
-                    dark:border-neutral-700/60
-                    dark:bg-gradient-to-r
-                    dark:from-neutral-800/50
-                    dark:to-neutral-800/20
+                    hover:shadow-sky-300/20
+                    dark:border-neutral-700/50
+                    dark:bg-neutral-800/30
+                    dark:backdrop-blur-sm
                     dark:hover:border-sky-500/60
-                    dark:hover:bg-gradient-to-r
-                    dark:hover:from-neutral-700/80
-                    dark:hover:to-sky-900/30
+                    dark:hover:bg-sky-900/20
                     dark:hover:shadow-md
-                    dark:hover:shadow-sky-500/20
+                    dark:hover:shadow-sky-500/30
                   "
                 >
                   <span
@@ -316,23 +311,25 @@ export default function About({ dict }: { dict: Dictionary }) {
                 rounded-xl
                 bg-gradient-to-r
                 from-sky-600
+                via-cyan-600
                 to-cyan-600
                 px-8
                 py-3.5
                 font-bold
                 text-white
                 shadow-lg
-                shadow-sky-600/40
+                shadow-sky-500/30
                 transition-all
                 duration-300
-                hover:shadow-xl
-                hover:shadow-sky-600/60
-                hover:scale-105
+                hover:shadow-2xl
+                hover:shadow-sky-500/50
+                hover:-translate-y-0.5
                 active:scale-95
                 dark:from-sky-500
+                dark:via-cyan-500
                 dark:to-cyan-500
-                dark:shadow-sky-900/50
-                dark:hover:shadow-sky-900/70
+                dark:shadow-sky-600/40
+                dark:hover:shadow-sky-600/60
               "
             >
               {t.bookWithDoctor}
@@ -365,22 +362,23 @@ export default function About({ dict }: { dict: Dictionary }) {
           mx-auto
           mt-10
           w-[calc(100%-2rem)]
-          rounded-[2rem]
-          bg-gradient-to-b
-          from-[#f7f2ee]
-          to-[#f3ece8]
+          rounded-3xl
+          bg-gradient-to-br
+          from-blue-50
+          via-white
+          to-cyan-50
           p-4
           ring-1
-          ring-slate-900/5
-          shadow-[0_24px_60px_-32px_rgba(15,23,42,0.35)]
+          ring-sky-200/40
+          shadow-[0_8px_32px_rgba(31,38,135,0.12)]
           md:w-[91.666667%]
           md:p-6
           dark:bg-gradient-to-br
-          dark:from-neutral-800/80
-          dark:via-neutral-800/60
-          dark:to-neutral-900/70
-          dark:ring-neutral-700/50
-          dark:shadow-[0_24px_60px_-32px_rgba(0,0,0,0.5)]
+          dark:from-neutral-900/50
+          dark:via-neutral-900/30
+          dark:to-sky-900/20
+          dark:ring-sky-500/20
+          dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)]
         "
       >
 
@@ -496,20 +494,21 @@ export default function About({ dict }: { dict: Dictionary }) {
               className="
                 h-full
                 w-full
-                rounded-[1.75rem]
-                bg-white/70
+                rounded-2xl
+                bg-white/80
                 px-5
                 py-8
                 ring-1
-                ring-slate-900/5
-                backdrop-blur-sm
-                shadow-[0_18px_45px_-28px_rgba(15,23,42,0.4)]
+                ring-sky-200/30
+                backdrop-blur-md
+                shadow-[0_8px_32px_rgba(15,23,42,0.15)]
                 sm:px-6
                 sm:py-10
                 md:px-10
                 md:py-12
-                dark:bg-neutral-950/60
-                dark:ring-white/10
+                dark:bg-neutral-900/50
+                dark:ring-sky-500/20
+                dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)]
               "
             >
 
@@ -586,23 +585,25 @@ export default function About({ dict }: { dict: Dictionary }) {
                   rounded-xl
                   bg-gradient-to-r
                   from-sky-600
+                  via-cyan-600
                   to-cyan-600
                   px-7
                   py-3
                   font-bold
                   text-white
                   shadow-lg
-                  shadow-sky-600/40
+                  shadow-sky-500/30
                   transition-all
                   duration-300
-                  hover:shadow-xl
-                  hover:shadow-sky-600/60
-                  hover:scale-105
+                  hover:shadow-2xl
+                  hover:shadow-sky-500/50
+                  hover:-translate-y-0.5
                   active:scale-95
                   dark:from-sky-500
+                  dark:via-cyan-500
                   dark:to-cyan-500
-                  dark:shadow-sky-900/50
-                  dark:hover:shadow-sky-900/70
+                  dark:shadow-sky-600/40
+                  dark:hover:shadow-sky-600/60
                 "
               >
 
