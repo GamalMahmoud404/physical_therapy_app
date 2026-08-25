@@ -39,10 +39,13 @@ export default function About({ dict }: { dict: Dictionary }) {
           shadow-[1px_1px_20px_-4px_rgb(196,196,196)]
           md:w-[91.666667%]
           md:px-12
-          dark:from-neutral-900/40
-          dark:via-neutral-900
-          dark:to-neutral-900
+          dark:bg-gradient-to-br
+          dark:from-neutral-800/80
+          dark:via-neutral-800/60
+          dark:to-neutral-900/80
           dark:shadow-[1px_1px_24px_-4px_rgb(0,0,0)]
+          dark:border
+          dark:border-neutral-700/50
         "
       >
 
@@ -382,9 +385,12 @@ export default function About({ dict }: { dict: Dictionary }) {
           shadow-[0_24px_60px_-32px_rgba(15,23,42,0.35)]
           md:w-[91.666667%]
           md:p-6
-          dark:from-neutral-800
-          dark:to-neutral-900
-          dark:ring-white/10
+          dark:bg-gradient-to-br
+          dark:from-neutral-800/80
+          dark:via-neutral-800/60
+          dark:to-neutral-900/70
+          dark:ring-neutral-700/50
+          dark:shadow-[0_24px_60px_-32px_rgba(0,0,0,0.5)]
         "
       >
 
