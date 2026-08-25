@@ -245,18 +245,32 @@ export default function About({ dict }: { dict: Dictionary }) {
                 <li
                   key={credential}
                   className="
+                    group
                     flex
                     items-center
                     gap-3
                     rounded-xl
                     sm:last:odd:col-span-2
                     border
-                    border-slate-200/80
-                    bg-white/60
+                    border-gray-200/60
+                    bg-gradient-to-r
+                    from-white
+                    to-sky-50/30
                     px-4
                     py-3.5
-                    dark:border-neutral-800
-                    dark:bg-neutral-800/40
+                    transition-all
+                    duration-300
+                    hover:border-sky-300/60
+                    hover:bg-gradient-to-r
+                    hover:from-white
+                    hover:to-sky-100/50
+                    hover:shadow-md
+                    hover:shadow-sky-200/30
+                    dark:border-neutral-700/60
+                    dark:from-neutral-800/50
+                    dark:to-neutral-800/20
+                    dark:hover:border-sky-600/40
+                    dark:hover:shadow-sky-900/30
                   "
                 >
                   <span
@@ -269,18 +283,24 @@ export default function About({ dict }: { dict: Dictionary }) {
                       items-center
                       justify-center
                       rounded-full
-                      bg-sky-50
+                      bg-gradient-to-br
+                      from-sky-500
+                      to-cyan-500
                       text-[11px]
                       font-black
-                      text-sky-600
-                      dark:bg-neutral-800
-                      dark:text-sky-400
+                      text-white
+                      shadow-md
+                      shadow-sky-500/30
+                      dark:shadow-sky-500/40
+                      group-hover:scale-110
+                      transition-transform
+                      duration-300
                     "
                   >
                     ✓
                   </span>
 
-                  <span className="text-[15px] leading-7 text-gray-500 dark:text-neutral-400">
+                  <span className="text-[15px] font-medium leading-7 text-gray-600 dark:text-neutral-300">
                     {credential}
                   </span>
                 </li>
@@ -294,23 +314,32 @@ export default function About({ dict }: { dict: Dictionary }) {
               href="#contact"
               className="
                 group
+                relative
                 mt-9
                 inline-flex
+                overflow-hidden
                 items-center
                 gap-2
                 rounded-xl
-                bg-sky-600
+                bg-gradient-to-r
+                from-sky-600
+                to-cyan-600
                 px-8
                 py-3.5
-                font-semibold
+                font-bold
                 text-white
-                shadow-[0_14px_30px_-14px_rgba(2,132,199,0.9)]
+                shadow-lg
+                shadow-sky-600/40
                 transition-all
                 duration-300
-                hover:bg-sky-700
-                dark:bg-sky-500
-                dark:text-neutral-950
-                dark:hover:bg-sky-400
+                hover:shadow-xl
+                hover:shadow-sky-600/60
+                hover:scale-105
+                active:scale-95
+                dark:from-sky-500
+                dark:to-cyan-500
+                dark:shadow-sky-900/50
+                dark:hover:shadow-sky-900/70
               "
             >
               {t.bookWithDoctor}
@@ -559,39 +588,27 @@ export default function About({ dict }: { dict: Dictionary }) {
                   inline-flex
                   overflow-hidden
                   rounded-xl
-                  border
-                  border-sky-600
+                  bg-gradient-to-r
+                  from-sky-600
+                  to-cyan-600
                   px-7
                   py-3
-                  font-semibold
-                  text-sky-600
-                  shadow-sm
+                  font-bold
+                  text-white
+                  shadow-lg
+                  shadow-sky-600/40
                   transition-all
-                  duration-500
+                  duration-300
+                  hover:shadow-xl
+                  hover:shadow-sky-600/60
                   hover:scale-105
-                  hover:text-white
-                  hover:shadow-lg
-                  hover:shadow-sky-600/20
-                  dark:border-sky-400
-                  dark:text-sky-300
-                  dark:hover:text-neutral-950
+                  active:scale-95
+                  dark:from-sky-500
+                  dark:to-cyan-500
+                  dark:shadow-sky-900/50
+                  dark:hover:shadow-sky-900/70
                 "
               >
-
-                {/* Hover Background */}
-
-                <span
-                  className="
-                    absolute
-                    inset-0
-                    -translate-x-full
-                    bg-sky-600
-                    transition-transform
-                    duration-500
-                    group-hover:translate-x-0
-                    dark:bg-sky-400
-                  "
-                />
 
                 {/* Button Text */}
 
@@ -599,11 +616,17 @@ export default function About({ dict }: { dict: Dictionary }) {
                   className="
                     relative
                     z-10
-                    transition-colors
-                    duration-500
+                    flex
+                    items-center
+                    gap-2
+                    transition-all
+                    duration-300
                   "
                 >
                   {t.welcome.cta}
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">
+                    →
+                  </span>
                 </span>
 
               </Link>
