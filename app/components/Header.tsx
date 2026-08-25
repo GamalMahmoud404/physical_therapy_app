@@ -47,13 +47,20 @@ export default function Header({
         z-50
         w-full
         border-b
-        border-gray-200
-        bg-white
-        shadow-sm
-        dark:border-neutral-800
-        dark:bg-neutral-900
+        border-gray-200/50
+        bg-white/80
+        backdrop-blur-lg
+        shadow-lg
+        shadow-gray-300/20
+        transition-all
+        duration-300
+        dark:border-neutral-700/50
+        dark:bg-neutral-900/80
+        dark:shadow-black/40
       "
     >
+      {/* Accent top bar */}
+      <div className="h-1 w-full bg-gradient-to-r from-sky-400 via-cyan-400 to-teal-400" />
 
       {/* ================= HEADER ================= */}
 
@@ -75,17 +82,23 @@ export default function Header({
           href={`/${locale}#home`}
           onClick={closeMenu}
           className="
+            group
             flex
             items-center
             gap-2
             text-xl
             font-bold
-            text-blue-600
-            transition
-            hover:text-blue-700
+            bg-gradient-to-r
+            from-sky-600
+            to-cyan-600
+            dark:from-sky-400
+            dark:to-cyan-400
+            bg-clip-text
+            text-transparent
+            transition-all
+            duration-300
+            hover:scale-105
             sm:text-2xl
-            dark:text-sky-400
-            dark:hover:text-sky-300
           "
         >
 
@@ -108,23 +121,26 @@ export default function Header({
 
         {/* ================= DESKTOP LINKS ================= */}
 
-        <div className="hidden items-center gap-6 md:flex lg:gap-8">
+        <div className="hidden items-center gap-1 md:flex lg:gap-2">
 
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={`
+                group
                 relative
-                px-1.5
-                py-1
-                font-medium
-                transition
+                px-3
+                py-2.5
+                text-sm
+                font-semibold
+                transition-all
                 duration-300
+                rounded-lg
                 ${
                   activeId === link.id
-                    ? "text-blue-600 dark:text-sky-400"
-                    : "text-gray-700 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-sky-400"
+                    ? "bg-sky-100/60 text-sky-700 dark:bg-sky-900/30 dark:text-sky-300"
+                    : "text-gray-600 dark:text-neutral-400 hover:bg-gray-100/50 dark:hover:bg-neutral-800/50 hover:text-sky-600 dark:hover:text-sky-300"
                 }
               `}
             >
@@ -133,13 +149,17 @@ export default function Header({
                 <span
                   className="
                     absolute
-                    bottom-0
-                    start-0
-                    h-0.5
-                    w-full
-                    bg-blue-600
-                    dark:bg-sky-400
+                    bottom-1
+                    start-3
+                    h-1
+                    w-6
+                    bg-gradient-to-r
+                    from-sky-500
+                    to-cyan-500
                     rounded-full
+                    shadow-lg
+                    shadow-sky-500/50
+                    dark:shadow-sky-400/40
                   "
                   aria-hidden="true"
                 />
@@ -166,7 +186,7 @@ export default function Header({
             aria-label={isOpen ? dict.closeMenu : dict.openMenu}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
-            className="
+            className={`
               flex
               h-10
               w-10
@@ -174,15 +194,17 @@ export default function Header({
               justify-center
               rounded-lg
               text-2xl
-              text-gray-700
-              transition
-              hover:bg-gray-100
-              hover:text-blue-600
+              font-bold
+              transition-all
+              duration-300
               md:hidden
-              dark:text-neutral-300
-              dark:hover:bg-neutral-800
+              ${
+                isOpen
+                  ? "bg-gradient-to-br from-sky-500 to-cyan-500 text-white shadow-lg shadow-sky-500/30"
+                  : "text-gray-700 hover:bg-gray-100/60 dark:text-neutral-300 dark:hover:bg-neutral-800/60"
+              }
               dark:hover:text-sky-400
-            "
+            `}
           >
             {isOpen ? "✕" : "☰"}
           </button>
@@ -200,16 +222,20 @@ export default function Header({
         className={`
           overflow-hidden
           border-t
-          border-gray-100
-          bg-white
+          border-gray-200/30
+          bg-gradient-to-b
+          from-white/90
+          to-gray-50/80
+          backdrop-blur-sm
           transition-all
           duration-300
           md:hidden
-          dark:border-neutral-800
-          dark:bg-neutral-900
+          dark:border-neutral-700/30
+          dark:from-neutral-900/90
+          dark:to-neutral-950/80
           ${
             isOpen
-              ? "max-h-96 opacity-100"
+              ? "max-h-screen opacity-100"
               : "max-h-0 opacity-0"
           }
         `}
@@ -220,7 +246,8 @@ export default function Header({
             flex
             flex-col
             px-6
-            py-4
+            py-6
+            space-y-2
           "
         >
 
@@ -231,21 +258,17 @@ export default function Header({
               onClick={closeMenu}
               className={`
                 block
-                py-4
+                py-3.5
                 px-4
-                font-medium
-                transition
+                font-semibold
+                text-sm
+                transition-all
                 duration-300
                 rounded-lg
                 ${
                   activeId === link.id
-                    ? "bg-blue-100 text-blue-600 dark:bg-sky-900/20 dark:text-sky-400"
-                    : "text-gray-700 dark:text-neutral-300 hover:bg-gray-50 dark:hover:bg-neutral-800 hover:text-blue-600 dark:hover:text-sky-400"
-                }
-                ${
-                  index < links.length - 1
-                    ? "border-b border-gray-100 dark:border-neutral-800"
-                    : ""
+                    ? "bg-gradient-to-r from-sky-100 to-cyan-100 text-sky-700 shadow-md shadow-sky-200/50 dark:from-sky-900/40 dark:to-cyan-900/30 dark:text-sky-300 dark:shadow-sky-900/30"
+                    : "text-gray-700 dark:text-neutral-300 hover:bg-gray-100/60 dark:hover:bg-neutral-800/60 hover:text-sky-600 dark:hover:text-sky-300 transition-colors"
                 }
               `}
             >
