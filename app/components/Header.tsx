@@ -6,6 +6,7 @@ import { useState } from "react";
 
 import ThemeToggle from "./ThemeToggle";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { useScrollSpy } from "../hooks/useScrollSpy";
 
 import type { Locale } from "../i18n/config";
 import type { Dictionary } from "../i18n/getDictionary";
@@ -25,12 +26,17 @@ export default function Header({
 
   // كل الروابط تحمل بادئة اللغة
   const links = [
-    { href: `/${locale}#home`, label: dict.home },
-    { href: `/${locale}#about`, label: dict.about },
-    { href: `/${locale}#services`, label: dict.services },
-    { href: `/${locale}#articles`, label: dict.articles },
-    { href: `/${locale}#contact`, label: dict.contact },
+    { id: "home", href: `/${locale}#home`, label: dict.home },
+    { id: "about", href: `/${locale}#about`, label: dict.about },
+    { id: "services", href: `/${locale}#services`, label: dict.services },
+    { id: "articles", href: `/${locale}#articles`, label: dict.articles },
+    { id: "contact", href: `/${locale}#contact`, label: dict.contact },
   ];
+
+  const activeId = useScrollSpy(
+    links.map(({ id, label }) => ({ id, label })),
+    { offset: 100 }
+  );
 
   return (
     <nav
@@ -108,16 +114,36 @@ export default function Header({
             <Link
               key={link.href}
               href={link.href}
-              className="
-                text-gray-700
+              className={`
+                relative
+                px-1.5
+                py-1
+                font-medium
                 transition
                 duration-300
-                hover:text-blue-600
-                dark:text-neutral-300
-                dark:hover:text-sky-400
-              "
+                ${
+                  activeId === link.id
+                    ? "text-blue-600 dark:text-sky-400"
+                    : "text-gray-700 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-sky-400"
+                }
+              `}
             >
               {link.label}
+              {activeId === link.id && (
+                <span
+                  className="
+                    absolute
+                    bottom-0
+                    start-0
+                    h-0.5
+                    w-full
+                    bg-blue-600
+                    dark:bg-sky-400
+                    rounded-full
+                  "
+                  aria-hidden="true"
+                />
+              )}
             </Link>
           ))}
 
@@ -204,15 +230,18 @@ export default function Header({
               href={link.href}
               onClick={closeMenu}
               className={`
+                block
                 py-4
-                text-gray-700
+                px-4
+                font-medium
                 transition
                 duration-300
-                hover:bg-gray-50
-                hover:text-blue-600
-                dark:text-neutral-300
-                dark:hover:bg-neutral-800
-                dark:hover:text-sky-400
+                rounded-lg
+                ${
+                  activeId === link.id
+                    ? "bg-blue-100 text-blue-600 dark:bg-sky-900/20 dark:text-sky-400"
+                    : "text-gray-700 dark:text-neutral-300 hover:bg-gray-50 dark:hover:bg-neutral-800 hover:text-blue-600 dark:hover:text-sky-400"
+                }
                 ${
                   index < links.length - 1
                     ? "border-b border-gray-100 dark:border-neutral-800"

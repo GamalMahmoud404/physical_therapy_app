@@ -281,19 +281,26 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
                       relative
                       inline-flex
                       overflow-hidden
-                      rounded-lg
+                      rounded-xl
                       border
                       border-sky-600
-                      px-7
-                      py-3
-                      font-semibold
+                      px-8
+                      py-3.5
+                      font-bold
                       text-sky-600
-                      transition
+                      shadow-lg
+                      shadow-sky-600/20
+                      transition-all
                       duration-500
-                      hover:text-white
+                      hover:shadow-2xl
+                      hover:shadow-sky-600/40
+                      hover:scale-105
+                      active:scale-95
                       dark:border-sky-400
                       dark:text-sky-300
                       dark:hover:text-neutral-950
+                      dark:shadow-sky-400/20
+                      dark:hover:shadow-sky-400/40
                     "
                   >
 
@@ -304,11 +311,14 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
                         absolute
                         inset-0
                         -translate-x-full
-                        bg-sky-600
+                        bg-gradient-to-r
+                        from-sky-600
+                        to-cyan-600
                         transition-transform
                         duration-500
                         group-hover:translate-x-0
-                        dark:bg-sky-400
+                        dark:from-sky-400
+                        dark:to-cyan-400
                       "
                     />
 
@@ -320,9 +330,18 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
                         z-10
                         transition-colors
                         duration-500
+                        flex
+                        items-center
+                        gap-2
                       "
                     >
                       {slide.button}
+                      <span
+                        aria-hidden="true"
+                        className="transition-transform duration-300 group-hover:translate-x-1"
+                      >
+                        →
+                      </span>
                     </span>
 
                   </a>
@@ -353,19 +372,25 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
             items-center
             justify-center
             rounded-full
-            bg-sky-600
+            bg-gradient-to-br
+            from-sky-600
+            to-blue-700
             text-3xl
             font-bold
             leading-none
             text-white
-            opacity-50
-            shadow-[0_8px_24px_-6px_rgba(2,132,199,0.7)]
+            opacity-60
+            shadow-lg
+            shadow-sky-600/40
             ring-2
-            ring-white/70
-            transition
-            hover:scale-110
-            hover:bg-sky-700
+            ring-white/40
+            transition-all
+            duration-300
+            hover:scale-125
             hover:opacity-100
+            hover:shadow-xl
+            hover:shadow-sky-600/60
+            hover:ring-white/70
             md:left-8
             md:flex
           "
@@ -393,19 +418,25 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
             items-center
             justify-center
             rounded-full
-            bg-sky-600
+            bg-gradient-to-br
+            from-sky-600
+            to-blue-700
             text-3xl
             font-bold
             leading-none
             text-white
-            opacity-50
-            shadow-[0_8px_24px_-6px_rgba(2,132,199,0.7)]
+            opacity-60
+            shadow-lg
+            shadow-sky-600/40
             ring-2
-            ring-white/70
-            transition
-            hover:scale-110
-            hover:bg-sky-700
+            ring-white/40
+            transition-all
+            duration-300
+            hover:scale-125
             hover:opacity-100
+            hover:shadow-xl
+            hover:shadow-sky-600/60
+            hover:ring-white/70
             md:right-8
             md:flex
           "
@@ -425,7 +456,8 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
             z-20
             flex
             justify-center
-            gap-0
+            items-center
+            gap-2
             md:bottom-6
           "
         >
@@ -436,19 +468,19 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
               onClick={() => setCurrent(index)}
               aria-label={`${dict.goToSlide} ${index + 1}`}
               aria-current={index === current}
-              className="group flex h-9 items-center px-1"
+              className="group flex h-10 items-center px-1 transition-transform hover:scale-110"
             >
               <span
                 className={`
                   block
-                  h-2
+                  h-2.5
                   rounded-full
                   transition-all
                   duration-500
                   ${
                     index === current
-                      ? "w-10 bg-sky-600"
-                      : "w-2 bg-white/70 group-hover:bg-white"
+                      ? "w-12 bg-gradient-to-r from-sky-600 to-cyan-600 shadow-lg shadow-sky-600/40"
+                      : "w-2.5 bg-white/60 group-hover:bg-white shadow-md"
                   }
                 `}
               />
@@ -464,21 +496,29 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
               isPaused ? dict.playAutoplay : dict.pauseAutoplay
             }
             className="
-              ms-2
+              ms-3
               flex
-              h-9
-              w-9
+              h-10
+              w-10
               items-center
               justify-center
               rounded-full
-              bg-sky-600
+              bg-gradient-to-br
+              from-sky-600
+              to-blue-700
               text-xs
               text-white
-              opacity-50
+              opacity-70
+              shadow-lg
+              shadow-sky-600/30
               ring-2
-              ring-white/70
-              transition
+              ring-white/40
+              transition-all
+              duration-300
               hover:opacity-100
+              hover:scale-110
+              hover:shadow-xl
+              hover:ring-white/60
             "
           >
             <span aria-hidden="true">{isPaused ? "▶" : "❚❚"}</span>

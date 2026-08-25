@@ -3,15 +3,36 @@ import Link from "next/link";
 import type { Dictionary } from "../i18n/getDictionary";
 
 export default function Footer({ dict }: { dict: Dictionary }) {
+  const currentYear = new Date().getFullYear();
+
   const quickLinks = [
     { href: "#home", label: dict.nav.home },
     { href: "#about", label: dict.nav.about },
     { href: "#services", label: dict.nav.services },
+    { href: "#articles", label: dict.nav.articles },
     { href: "#contact", label: dict.nav.contact },
   ];
 
+  const socialLinks = [
+    { href: "https://facebook.com", label: "Facebook", icon: "f" },
+    { href: "https://instagram.com", label: "Instagram", icon: "📷" },
+    { href: "https://whatsapp.com", label: "WhatsApp", icon: "💬" },
+  ];
+
   return (
-    <footer className="bg-neutral-800 text-white dark:bg-neutral-900">
+    <footer
+      className="
+        bg-gradient-to-b
+        from-neutral-800
+        to-neutral-950
+        text-white
+        dark:from-neutral-900
+        dark:to-neutral-950
+        border-t
+        border-neutral-700
+        dark:border-neutral-800
+      "
+    >
 
       <div className="mx-auto w-full max-w-7xl px-6 py-10">
 
@@ -37,12 +58,23 @@ export default function Footer({ dict }: { dict: Dictionary }) {
               {dict.footer.quickLinks}
             </h3>
 
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-2.5 text-sm">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="transition-colors duration-300 hover:text-sky-400"
+                    className="
+                      transition-colors
+                      duration-300
+                      hover:text-sky-400
+                      focus:outline-none
+                      focus:ring-2
+                      focus:ring-sky-400
+                      focus:rounded
+                      px-2
+                      py-1
+                      inline-block
+                    "
                   >
                     {link.label}
                   </Link>
@@ -80,22 +112,35 @@ export default function Footer({ dict }: { dict: Dictionary }) {
 
             {/* Social Links */}
 
-            <div className="mt-5 flex gap-5">
-
-              <a
-                href="#facebook"
-                className="transition-colors duration-300 hover:text-sky-400"
-              >
-                Facebook
-              </a>
-
-              <a
-                href="#instagram"
-                className="transition-colors duration-300 hover:text-sky-400"
-              >
-                Instagram
-              </a>
-
+            <div className="mt-6 flex gap-4">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.href}
+                  href={social.href}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label={social.label}
+                  className="
+                    inline-flex
+                    items-center
+                    justify-center
+                    h-10
+                    w-10
+                    rounded-full
+                    bg-neutral-700
+                    hover:bg-sky-600
+                    transition-all
+                    duration-300
+                    transform
+                    hover:scale-110
+                    focus:outline-none
+                    focus:ring-2
+                    focus:ring-sky-400
+                  "
+                >
+                  <span className="text-lg">{social.icon}</span>
+                </a>
+              ))}
             </div>
 
           </div>
@@ -103,22 +148,30 @@ export default function Footer({ dict }: { dict: Dictionary }) {
         </div>
 
 
+        {/* ================= DIVIDER ================= */}
+
+        <div className="mt-10 flex items-center justify-center gap-2 pt-6">
+          <span className="h-px flex-1 bg-gradient-to-r from-transparent to-neutral-700" />
+          <span className="h-1.5 w-1.5 rounded-full bg-sky-600" />
+          <span className="h-px flex-1 bg-gradient-to-l from-transparent to-neutral-700" />
+        </div>
+
         {/* ================= BOTTOM ================= */}
 
         <div
           className="
-            mt-10
-            border-t
-            border-neutral-700
-            pt-6
+            mt-8
             text-center
             text-sm
             text-neutral-400
-            dark:border-neutral-800
+            dark:text-neutral-500
           "
         >
-          <p>
-            © {new Date().getFullYear()} {dict.footer.rights}
+          <p className="mb-2">
+            © {currentYear} {dict.footer.rights}
+          </p>
+          <p className="text-xs">
+            تم تطويره بـ ❤️ لتقديم أفضل خدمات العلاج الطبيعي
           </p>
         </div>
 

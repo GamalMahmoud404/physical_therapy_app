@@ -28,6 +28,10 @@
 html {
   scroll-behavior: smooth;
   color-scheme: light;
+  /* Enhanced typography baseline */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 html[data-theme="dark"] {
