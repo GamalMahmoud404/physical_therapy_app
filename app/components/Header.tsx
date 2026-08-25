@@ -136,14 +136,14 @@ export default function Header({
                 duration-300
                 rounded-lg
                 ${
-                  activeId === link.id
+                  activeId === link.id && link.id !== "home"
                     ? "bg-sky-100/60 text-sky-700 shadow-md shadow-sky-400/30 dark:bg-sky-900/30 dark:text-sky-300 dark:shadow-sky-500/30"
                     : "text-gray-600 dark:text-neutral-400 hover:bg-gray-100/50 dark:hover:bg-neutral-800/50 hover:text-sky-600 dark:hover:text-sky-300 hover:shadow-md hover:shadow-gray-400/20 dark:hover:shadow-gray-600/30"
                 }
               `}
             >
               {link.label}
-              {activeId === link.id && (
+              {activeId === link.id && link.id !== "home" && (
                 <span
                   className="
                     absolute
@@ -264,7 +264,7 @@ export default function Header({
                 duration-300
                 rounded-lg
                 ${
-                  activeId === link.id
+                  activeId === link.id && link.id !== "home"
                     ? "bg-gradient-to-r from-sky-100 to-cyan-100 text-sky-700 shadow-md shadow-sky-200/50 dark:from-sky-900/40 dark:to-cyan-900/30 dark:text-sky-300 dark:shadow-sky-900/30"
                     : "text-gray-700 dark:text-neutral-300 hover:bg-gray-100/60 dark:hover:bg-neutral-800/60 hover:text-sky-600 dark:hover:text-sky-300 hover:shadow-md hover:shadow-gray-300/40 dark:hover:shadow-gray-700/30 transition-all"
                 }
