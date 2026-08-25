@@ -3,14 +3,8 @@ import Link from "next/link";
 
 import type { Dictionary } from "../i18n/getDictionary";
 
+// صور الطبيب — ثابتة، النصوص تأتي من القاموس
 const doctorImages = ["/31-s.jpg"];
-
-const stats = [
-  { icon: "👨‍⚕️", value: "15+", label: "سنة خبرة" },
-  { icon: "🏥", value: "5000+", label: "مريض معالج" },
-  { icon: "🎓", value: "10+", label: "شهادة احترافية" },
-  { icon: "⭐", value: "4.9", label: "تقييم المرضى" },
-];
 
 export default function About({ dict }: { dict: Dictionary }) {
   const t = dict.about;
@@ -23,522 +17,605 @@ export default function About({ dict }: { dict: Dictionary }) {
     <section
       id="about"
       aria-label={t.sectionLabel}
-      className="w-full py-24 px-4"
+      className="w-full pt-20 pb-20"
     >
-      {/* ================= DECORATIVE ELEMENTS ================= */}
 
-      <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
-        <div
+      {/* ================= SECTION 1 - DOCTOR ================= */}
+
+      <section
+        className="
+          relative
+          mx-auto
+          mt-16
+          w-[calc(100%-2rem)]
+          overflow-hidden
+          rounded-[2rem]
+          bg-gradient-to-b
+          from-sky-50/70
+          via-white
+          to-white
+          px-6
+          py-14
+          shadow-[1px_1px_20px_-4px_rgb(196,196,196)]
+          md:w-[91.666667%]
+          md:px-12
+          dark:from-neutral-900/40
+          dark:via-neutral-900
+          dark:to-neutral-900
+          dark:shadow-[1px_1px_24px_-4px_rgb(0,0,0)]
+        "
+      >
+
+        {/* ================= TOP ACCENT ================= */}
+
+        <span
+          aria-hidden="true"
           className="
             absolute
-            -top-40
-            -right-40
-            w-80
-            h-80
-            bg-blue-400/10
-            rounded-full
-            blur-3xl
-            dark:bg-blue-600/5
+            inset-x-0
+            top-0
+            h-1
+            bg-gradient-to-l
+            from-sky-400
+            via-sky-500
+            to-cyan-500
           "
         />
-        <div
-          className="
-            absolute
-            -bottom-40
-            -left-40
-            w-80
-            h-80
-            bg-cyan-400/10
-            rounded-full
-            blur-3xl
-            dark:bg-cyan-600/5
-          "
-        />
-      </div>
 
-      {/* ================= SECTION 1 - DOCTOR INTRODUCTION ================= */}
 
-      <section className="mx-auto max-w-7xl relative">
-        {/* HERO CARD */}
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-14">
 
-        <div
-          data-aos="fade-up"
-          data-aos-duration="1200"
-          className="
-            relative
-            rounded-3xl
-            overflow-hidden
-            bg-gradient-to-br
-            from-sky-50
-            via-cyan-50
-            to-teal-50
-            dark:from-neutral-800/40
-            dark:via-neutral-800/20
-            dark:to-neutral-900/40
-            border
-            border-sky-200/50
-            dark:border-neutral-700/50
-            backdrop-blur-sm
-            p-8
-            md:p-12
-            lg:p-16
-            shadow-2xl
-            mb-20
-          "
-        >
-          {/* ACCENT LINE */}
+          {/* ================================================= */}
+          {/* PHOTO SIDE */}
+          {/* ================================================= */}
+
           <div
-            className="
-              absolute
-              top-0
-              inset-x-0
-              h-1.5
-              bg-gradient-to-r
-              from-sky-400
-              via-cyan-400
-              to-teal-400
-            "
-          />
+            data-aos="fade-left"
+            data-aos-duration="1100"
+            data-aos-delay="200"
+            data-aos-once="true"
+            className="w-full lg:w-2/5"
+          >
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
-            {/* PHOTO SIDE - LARGER */}
+            {/* ================= MAIN PHOTO ================= */}
 
+            {doctor.images.length > 0 && (
             <div
-              data-aos="zoom-in"
-              data-aos-duration="1200"
-              data-aos-delay="200"
-              className="lg:col-span-2 relative group"
+              className="
+                group
+                relative
+                mx-auto
+                aspect-[3/4]
+                w-full
+                max-w-sm
+                lg:max-w-none
+                overflow-hidden
+                rounded-[1.75rem]
+                shadow-[0_25px_55px_-28px_rgba(15,23,42,0.55)]
+                ring-1
+                ring-slate-900/5
+                dark:ring-white/10
+              "
             >
-              {doctor.images.length > 0 && (
-                <div className="relative">
-                  {/* FLOATING ELEMENTS */}
-                  <div className="absolute -top-6 -right-6 w-24 h-24 bg-sky-400/20 rounded-full blur-2xl" />
-                  <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-cyan-400/20 rounded-full blur-2xl" />
+              <Image
+                src={doctor.images[0].src}
+                alt={doctor.images[0].alt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 34vw"
+                className="
+                  object-cover
+                  transition-transform
+                  duration-700
+                  group-hover:scale-105
+                "
+              />
 
+              {/* OVERLAY */}
+
+              <span
+                aria-hidden="true"
+                className="
+                  absolute
+                  inset-0
+                  bg-gradient-to-t
+                  from-neutral-900/85
+                  via-neutral-900/15
+                  to-transparent
+                "
+              />
+
+              {/* NAME PLATE */}
+
+              <div className="absolute inset-x-5 bottom-5">
+
+                <p className="text-lg font-extrabold text-white md:text-xl">
+                  {doctor.name}
+                </p>
+
+                <p className="mt-1.5 text-xs font-semibold text-sky-300 md:text-[13px]">
+                  {doctor.title}
+                </p>
+
+              </div>
+            </div>
+            )}
+
+
+            {/* ================= EXTRA PHOTOS ================= */}
+
+            {doctor.images.length > 1 && (
+              <div className="mx-auto mt-4 grid max-w-sm grid-cols-3 gap-3">
+                {doctor.images.slice(1, 4).map((image) => (
                   <div
+                    key={image.src}
                     className="
+                      group
                       relative
-                      aspect-[3/4]
+                      aspect-square
                       overflow-hidden
-                      rounded-2xl
-                      shadow-2xl
+                      rounded-xl
                       ring-1
-                      ring-white/30
-                      dark:ring-white/10
+                      ring-slate-900/5
                     "
                   >
                     <Image
-                      src={doctor.images[0].src}
-                      alt={doctor.images[0].alt}
+                      src={image.src}
+                      alt={image.alt}
                       fill
-                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      sizes="12vw"
                       className="
                         object-cover
-                        transition-all
+                        transition-transform
                         duration-700
-                        group-hover:scale-105
-                        group-hover:brightness-110
-                      "
-                      loading="lazy"
-                    />
-
-                    <div
-                      className="
-                        absolute
-                        inset-0
-                        bg-gradient-to-t
-                        from-black/40
-                        via-transparent
-                        to-transparent
-                        group-hover:from-black/20
-                        transition-all
-                        duration-700
+                        group-hover:scale-110
                       "
                     />
-
-                    {/* BADGE OVERLAY */}
-                    <div
-                      className="
-                        absolute
-                        bottom-0
-                        inset-x-0
-                        p-5
-                        bg-gradient-to-t
-                        from-black/60
-                        to-transparent
-                      "
-                    >
-                      <p className="text-xl font-bold text-white">
-                        {doctor.name}
-                      </p>
-                      <p className="text-sm text-sky-300 font-semibold mt-1">
-                        {doctor.title}
-                      </p>
-                    </div>
                   </div>
-                </div>
-              )}
-            </div>
-
-            {/* INFO SIDE - EXPANDED */}
-
-            <div
-              data-aos="fade-left"
-              data-aos-duration="1200"
-              data-aos-delay="300"
-              className="lg:col-span-3"
-            >
-              {/* HEADER */}
-
-              <div className="mb-8">
-                <span
-                  className="
-                    inline-flex
-                    items-center
-                    gap-2
-                    rounded-full
-                    bg-sky-100/80
-                    dark:bg-sky-900/40
-                    px-4
-                    py-2
-                    text-sm
-                    font-bold
-                    text-sky-700
-                    dark:text-sky-300
-                  "
-                >
-                  <span className="flex h-2 w-2 rounded-full bg-sky-500 animate-pulse" />
-                  {t.doctorLabel}
-                </span>
-
-                <h2
-                  className="
-                    mt-4
-                    text-3xl
-                    md:text-4xl
-                    font-extrabold
-                    text-gray-900
-                    dark:text-white
-                    leading-tight
-                  "
-                >
-                  {t.doctorHeading}
-                </h2>
-
-                <p
-                  className="
-                    mt-3
-                    text-lg
-                    text-gray-600
-                    dark:text-neutral-300
-                  "
-                >
-                  متخصص في العلاج الطبيعي والتأهيل بخبرة طويلة وشهادات عالمية
-                </p>
-              </div>
-
-              {/* BIO */}
-
-              <div className="space-y-4 mb-8">
-                {doctor.bio.map((paragraph, index) => (
-                  <p
-                    key={index}
-                    className="
-                      text-base
-                      leading-relaxed
-                      text-gray-700
-                      dark:text-neutral-300
-                    "
-                  >
-                    {paragraph}
-                  </p>
                 ))}
               </div>
+            )}
 
-              {/* CREDENTIALS GRID */}
+          </div>
 
-              <div className="mb-8">
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                  <span className="text-2xl">🎓</span> المؤهلات والشهادات
-                </h3>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {doctor.credentials.map((credential, idx) => (
-                    <div
-                      key={idx}
-                      className="
-                        group
-                        flex
-                        items-start
-                        gap-3
-                        p-4
-                        rounded-xl
-                        bg-white/60
-                        dark:bg-neutral-700/40
-                        border
-                        border-sky-200/60
-                        dark:border-neutral-600/50
-                        hover:bg-sky-50
-                        dark:hover:bg-neutral-700/60
-                        hover:border-sky-400
-                        dark:hover:border-sky-500
-                        transition-all
-                        duration-300
-                      "
-                    >
-                      <span
-                        className="
-                          flex
-                          h-6
-                          w-6
-                          shrink-0
-                          items-center
-                          justify-center
-                          rounded-full
-                          bg-gradient-to-br
-                          from-sky-500
-                          to-cyan-500
-                          text-white
-                          text-sm
-                          font-bold
-                          mt-0.5
-                        "
-                      >
-                        ✓
-                      </span>
+          {/* ================================================= */}
+          {/* INFO SIDE */}
+          {/* ================================================= */}
 
-                      <span
-                        className="
-                          text-sm
-                          font-medium
-                          text-gray-700
-                          dark:text-neutral-300
-                          leading-snug
-                        "
-                      >
-                        {credential}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+          <div
+            data-aos="fade-right"
+            data-aos-duration="1100"
+            data-aos-delay="300"
+            data-aos-once="true"
+            className="w-full text-start lg:w-3/5"
+          >
 
-              {/* CTA BUTTON */}
+            {/* ================= LABEL ================= */}
 
-              <Link
-                href="#contact"
-                className="
-                  group
-                  inline-flex
-                  items-center
-                  gap-2
-                  px-8
-                  py-4
-                  rounded-xl
-                  bg-gradient-to-r
-                  from-sky-600
-                  to-cyan-600
-                  text-white
-                  font-bold
-                  text-lg
-                  shadow-xl
-                  shadow-sky-500/40
-                  transition-all
-                  duration-300
-                  hover:shadow-2xl
-                  hover:shadow-sky-500/60
-                  hover:scale-105
-                  active:scale-95
-                  dark:from-sky-500
-                  dark:to-cyan-500
-                  dark:shadow-sky-900/50
-                  dark:hover:shadow-sky-900/70
-                "
-              >
-                {t.bookWithDoctor}
-                <span
+            <div className="mb-4 flex items-center gap-3">
+              <span className="h-px w-8 bg-sky-300 dark:bg-sky-500" />
+
+              <span className="text-sm font-bold tracking-wide text-sky-600 dark:text-sky-400">
+                {t.doctorLabel}
+              </span>
+            </div>
+
+
+            {/* ================= TITLE ================= */}
+
+            <h2
+              className="
+                text-2xl
+                font-extrabold
+                leading-tight
+                text-gray-800
+                md:text-4xl
+                dark:text-neutral-100
+              "
+            >
+              {t.doctorHeading}
+            </h2>
+
+
+            {/* ================= BIO ================= */}
+
+            <div className="mt-6 space-y-4">
+              {doctor.bio.map((paragraph, index) => (
+                <p
+                  key={index}
                   className="
-                    transition-transform
-                    duration-300
-                    group-hover:translate-x-1
-                    text-xl
+                    text-[16px]
+                    font-normal
+                    leading-9
+                    text-gray-500
+                    md:text-[17px]
+                    dark:text-neutral-400
                   "
                 >
-                  →
-                </span>
-              </Link>
+                  {paragraph}
+                </p>
+              ))}
             </div>
+
+
+            {/* ================= CREDENTIALS ================= */}
+
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+              {doctor.credentials.map((credential) => (
+                <li
+                  key={credential}
+                  className="
+                    flex
+                    items-center
+                    gap-3
+                    rounded-xl
+                    sm:last:odd:col-span-2
+                    border
+                    border-slate-200/80
+                    bg-white/60
+                    px-4
+                    py-3.5
+                    dark:border-neutral-800
+                    dark:bg-neutral-800/40
+                  "
+                >
+                  <span
+                    aria-hidden="true"
+                    className="
+                      flex
+                      h-6
+                      w-6
+                      shrink-0
+                      items-center
+                      justify-center
+                      rounded-full
+                      bg-sky-50
+                      text-[11px]
+                      font-black
+                      text-sky-600
+                      dark:bg-neutral-800
+                      dark:text-sky-400
+                    "
+                  >
+                    ✓
+                  </span>
+
+                  <span className="text-[15px] leading-7 text-gray-500 dark:text-neutral-400">
+                    {credential}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+
+            {/* ================= BUTTON ================= */}
+
+            <Link
+              href="#contact"
+              className="
+                group
+                mt-9
+                inline-flex
+                items-center
+                gap-2
+                rounded-xl
+                bg-sky-600
+                px-8
+                py-3.5
+                font-semibold
+                text-white
+                shadow-[0_14px_30px_-14px_rgba(2,132,199,0.9)]
+                transition-all
+                duration-300
+                hover:bg-sky-700
+                dark:bg-sky-500
+                dark:text-neutral-950
+                dark:hover:bg-sky-400
+              "
+            >
+              {t.bookWithDoctor}
+
+              <span
+                aria-hidden="true"
+                className="
+                  transition-transform
+                  duration-300
+                  rtl:rotate-180
+                  ltr:group-hover:translate-x-1
+                  rtl:group-hover:-translate-x-1
+                "
+              >
+                →
+              </span>
+            </Link>
+
           </div>
-        </div>
-
-        {/* VALUES SECTION */}
-
-        <div
-          data-aos="fade-up"
-          className="mb-20"
-        >
 
         </div>
+
       </section>
+
 
       {/* ================= SECTION 2 - WELCOME ================= */}
 
       <section
-        data-aos="fade-up"
         className="
           mx-auto
-          max-w-7xl
-          mt-20
-          rounded-3xl
-          bg-gradient-to-br
-          from-blue-50
-          via-cyan-50
-          to-teal-50
+          mt-10
+          w-[calc(100%-2rem)]
+          rounded-[2rem]
+          bg-gradient-to-b
+          from-[#f7f2ee]
+          to-[#f3ece8]
+          p-4
+          ring-1
+          ring-slate-900/5
+          shadow-[0_24px_60px_-32px_rgba(15,23,42,0.35)]
+          md:w-[91.666667%]
+          md:p-6
           dark:from-neutral-800
-          dark:via-neutral-800/80
           dark:to-neutral-900
-          p-8
-          md:p-12
-          border
-          border-blue-200/50
-          dark:border-neutral-700/50
-          shadow-xl
+          dark:ring-white/10
         "
       >
+
         <div
           className="
-            grid
-            grid-cols-1
-            lg:grid-cols-2
-            gap-12
+            flex
+            w-full
+            flex-col
             items-center
+            justify-evenly
+            gap-6
+            p-0
+            lg:flex-row
           "
         >
+
+          {/* ================================================= */}
           {/* IMAGE SIDE */}
+          {/* ================================================= */}
 
           <div
-            data-aos="fade-right"
-            data-aos-duration="1000"
-            className="relative h-80 lg:h-96"
+            className="
+              relative
+              mb-3
+              aspect-[1/0.83]
+              w-full
+              lg:-translate-y-6
+              lg:mt-5
+              lg:aspect-auto
+              lg:h-[450px]
+              lg:w-1/2
+            "
           >
+
+            {/* ================= ROTATING IMAGE ================= */}
+
             <div
+              data-aos="fade"
+              data-aos-duration="1200"
+              data-aos-delay="400"
+              data-aos-once="true"
               className="
                 absolute
                 left-[15%]
                 top-[9%]
+                z-[1]
                 w-1/2
+                lg:-translate-y-4
                 animate-[spin_20s_linear_infinite]
-                opacity-70
-                hover:opacity-100
-                transition-opacity
+                lg:top-10
               "
             >
               <Image
                 src="/27.png"
                 alt={t.welcome.rotatingImageAlt}
-                width={300}
-                height={300}
+                width={500}
+                height={500}
                 sizes="(max-width: 1024px) 45vw, 280px"
                 className="w-full"
                 draggable={false}
               />
             </div>
 
+
+            {/* ================= MAIN IMAGE ================= */}
+
             <div
+              data-aos="zoom-in"
+              data-aos-duration="1200"
+              data-aos-delay="600"
+              data-aos-once="true"
               className="
                 absolute
                 left-[35%]
                 top-[27%]
+                z-[2]
                 w-1/2
-                hover:scale-110
-                transition-transform
-                duration-500
+                lg:-translate-y-4
+                lg:top-35
               "
             >
               <Image
                 src="/26.png"
                 alt={t.welcome.mainImageAlt}
-                width={300}
-                height={300}
+                width={500}
+                height={500}
                 sizes="(max-width: 1024px) 45vw, 280px"
                 className="w-full"
                 draggable={false}
               />
             </div>
+
           </div>
 
+
+          {/* ================================================= */}
           {/* CONTENT SIDE */}
+          {/* ================================================= */}
 
-          <div data-aos="fade-left" data-aos-duration="1000">
-            <h3
+          <div
+            className="
+              mb-3
+              w-full
+              rounded-3xl
+              p-0
+              text-start
+              sm:p-3
+              lg:w-1/2
+            "
+          >
+
+            <div
               className="
-                text-3xl
-                md:text-4xl
-                font-extrabold
-                bg-gradient-to-r
-                from-sky-600
-                via-cyan-500
-                to-teal-600
-                dark:from-sky-400
-                dark:via-cyan-400
-                dark:to-teal-400
-                bg-clip-text
-                text-transparent
-                mb-6
+                h-full
+                w-full
+                rounded-[1.75rem]
+                bg-white/70
+                px-5
+                py-8
+                ring-1
+                ring-slate-900/5
+                backdrop-blur-sm
+                shadow-[0_18px_45px_-28px_rgba(15,23,42,0.4)]
+                sm:px-6
+                sm:py-10
+                md:px-10
+                md:py-12
+                dark:bg-neutral-950/60
+                dark:ring-white/10
               "
             >
-              {t.welcome.heading}
-            </h3>
 
-            <p
-              className="
-                text-lg
-                leading-relaxed
-                text-gray-700
-                dark:text-neutral-300
-                mb-6
-              "
-            >
-              <span className="font-bold text-gray-900 dark:text-white">
-                {t.welcome.lead}
-              </span>{" "}
-              {t.welcome.body}
-            </p>
+              {/* ================= TITLE ================= */}
 
-            <Link
-              href="#services"
-              className="
-                group
-                inline-flex
-                items-center
-                gap-2
-                px-7
-                py-3.5
-                rounded-xl
-                bg-gradient-to-r
-                from-sky-600
-                to-cyan-600
-                text-white
-                font-bold
-                shadow-lg
-                shadow-sky-500/30
-                hover:shadow-xl
-                hover:shadow-sky-500/50
-                transition-all
-                duration-300
-                hover:scale-105
-                dark:from-sky-500
-                dark:to-cyan-500
-              "
-            >
-              {t.welcome.cta}
-              <span className="group-hover:translate-x-1 transition-transform">
-                →
-              </span>
-            </Link>
+              <p
+                data-aos="fade-down"
+                data-aos-duration="800"
+                data-aos-delay="500"
+                data-aos-once="true"
+                className="
+                  mb-5
+                  inline-block
+                  bg-gradient-to-r
+                  from-[rgb(121,13,13)]
+                  via-[rgba(10,198,204,0.701)]
+                  to-[rgb(184,13,241)]
+                  bg-clip-text
+                  pb-1
+                  text-3xl
+                  font-extrabold
+                  leading-[1.4]
+                  text-transparent
+                  md:text-4xl
+                "
+              >
+                {t.welcome.heading}
+              </p>
+
+
+              {/* ================= DESCRIPTION ================= */}
+
+              <p
+                data-aos="zoom-in"
+                data-aos-duration="1000"
+                data-aos-delay="600"
+                data-aos-once="true"
+                className="
+                  max-w-[62ch]
+                  text-[16px]
+                  font-normal
+                  leading-[1.85]
+                  text-slate-600
+                  dark:text-neutral-400
+                  sm:text-[17px]
+                  sm:leading-[2.1]
+                  md:text-[18px]
+                "
+              >
+
+                <span className="font-extrabold text-slate-900 dark:text-neutral-100">
+                  {t.welcome.lead}
+                </span>{" "}
+
+                {t.welcome.body}
+
+              </p>
+
+
+              {/* ================= BUTTON ================= */}
+
+              <Link
+                href="#services"
+                data-aos="zoom-in"
+                data-aos-duration="800"
+                data-aos-delay="800"
+                data-aos-once="true"
+                className="
+                  group
+                  relative
+                  mt-8
+                  inline-flex
+                  overflow-hidden
+                  rounded-xl
+                  border
+                  border-sky-600
+                  px-7
+                  py-3
+                  font-semibold
+                  text-sky-600
+                  shadow-sm
+                  transition-all
+                  duration-500
+                  hover:scale-105
+                  hover:text-white
+                  hover:shadow-lg
+                  hover:shadow-sky-600/20
+                  dark:border-sky-400
+                  dark:text-sky-300
+                  dark:hover:text-neutral-950
+                "
+              >
+
+                {/* Hover Background */}
+
+                <span
+                  className="
+                    absolute
+                    inset-0
+                    -translate-x-full
+                    bg-sky-600
+                    transition-transform
+                    duration-500
+                    group-hover:translate-x-0
+                    dark:bg-sky-400
+                  "
+                />
+
+                {/* Button Text */}
+
+                <span
+                  className="
+                    relative
+                    z-10
+                    transition-colors
+                    duration-500
+                  "
+                >
+                  {t.welcome.cta}
+                </span>
+
+              </Link>
+
+            </div>
+
           </div>
+
         </div>
+
       </section>
+
     </section>
   );
 }
