@@ -37,8 +37,8 @@ export const fr: Dictionary = {
     toggleTheme: "Activer/désactiver le mode sombre",
     toLightMode: "Passer au mode clair",
     toDarkMode: "Passer au mode sombre",
-    switchLanguage: "التبديل إلى العربية",
-    languageShort: "ع",
+    switchLanguage: "Changer la langue",
+    languageShort: "FR",
   },
 
   hero: {

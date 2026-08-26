@@ -37,8 +37,8 @@ export const en: Dictionary = {
     toggleTheme: "Toggle dark mode",
     toLightMode: "Switch to light mode",
     toDarkMode: "Switch to dark mode",
-    switchLanguage: "التبديل إلى العربية",
-    languageShort: "ع",
+    switchLanguage: "Switch language",
+    languageShort: "EN",
   },
 
   hero: {
