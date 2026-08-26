@@ -30,18 +30,18 @@ export default function About({ dict }: { dict: Dictionary }) {
           w-[calc(100%-2rem)]
           overflow-hidden
           rounded-3xl
-          bg-white
-          backdrop-blur-xl
+          bg-white/70
+          backdrop-blur-2xl
           px-6
           py-14
-          shadow-[0_8px_32px_rgba(31,38,135,0.15)]
+          shadow-[0_20px_60px_rgba(31,38,135,0.2)]
           ring-1
-          ring-white/20
+          ring-white/40
           md:w-[91.666667%]
           md:px-12
-          dark:bg-neutral-900/50
-          dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)]
-          dark:ring-neutral-700/30
+          dark:bg-neutral-900/40
+          dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+          dark:ring-white/10
         "
       >
 
@@ -74,11 +74,12 @@ export default function About({ dict }: { dict: Dictionary }) {
                 max-w-sm
                 lg:max-w-none
                 overflow-hidden
-                rounded-2xl
-                shadow-[0_20px_50px_rgba(15,23,42,0.3)]
+                rounded-3xl
+                shadow-[0_25px_60px_rgba(15,23,42,0.35)]
                 ring-1
-                ring-sky-200/50
-                dark:ring-sky-500/20
+                ring-white/30
+                backdrop-blur-sm
+                dark:ring-sky-400/20
               "
             >
               <Image
