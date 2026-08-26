@@ -84,19 +84,9 @@ export default function Header({
             flex
             items-center
             gap-2
-            text-xl
-            font-bold
-            bg-gradient-to-r
-            from-sky-600
-            to-cyan-600
-            dark:from-sky-400
-            dark:to-cyan-400
-            bg-clip-text
-            text-transparent
             transition-all
             duration-300
-            hover:scale-105
-            sm:text-2xl
+            hover:scale-110
           "
         >
 
@@ -104,16 +94,14 @@ export default function Header({
 
           <Image
             src="/logo.png"
-            alt=""
+            alt="Logo"
             width={96}
             height={96}
             sizes="32px"
             priority
-            aria-hidden="true"
-            className="h-7 w-7 shrink-0 sm:h-8 sm:w-8"
+            className="h-8 w-8 shrink-0 sm:h-9 sm:w-9"
           />
 
-          {dict.brand}
         </Link>
 
 
