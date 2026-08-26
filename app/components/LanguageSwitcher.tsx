@@ -6,6 +6,12 @@ import { useState } from "react";
 import { locales, localeNames, type Locale } from "../i18n/config";
 import type { Dictionary } from "../i18n/getDictionary";
 
+const localeFlags: Record<Locale, string> = {
+  ar: "🇸🇦",
+  en: "🇺🇸",
+  fr: "🇫🇷",
+};
+
 export default function LanguageSwitcher({
   locale,
   dict,
@@ -46,13 +52,15 @@ export default function LanguageSwitcher({
           min-w-10
           shrink-0
           items-center
+          gap-1.5
           justify-center
           rounded-lg
           px-2
           text-sm
           font-bold
           text-gray-700
-          transition
+          transition-all
+          duration-300
           hover:bg-gray-100
           hover:text-blue-600
           dark:text-neutral-300
@@ -60,7 +68,8 @@ export default function LanguageSwitcher({
           dark:hover:text-sky-400
         "
       >
-        {locale.toUpperCase()}
+        <span>{localeFlags[locale]}</span>
+        <span>{locale.toUpperCase()}</span>
       </button>
 
       {isOpen && (
@@ -86,13 +95,16 @@ export default function LanguageSwitcher({
               key={lang}
               onClick={() => switchTo(lang)}
               className={`
-                block
+                flex
+                items-center
+                gap-3
                 w-full
                 px-4
                 py-3
                 text-sm
                 font-medium
-                transition-colors
+                transition-all
+                duration-300
                 text-left
                 ${
                   locale === lang
@@ -101,7 +113,8 @@ export default function LanguageSwitcher({
                 }
               `}
             >
-              {localeNames[lang]}
+              <span className="text-lg">{localeFlags[lang]}</span>
+              <span>{localeNames[lang]}</span>
             </button>
           ))}
         </div>
