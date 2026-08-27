@@ -48,21 +48,20 @@ export default function LanguageSwitcher({
         aria-label={dict.switchLanguage}
         title={dict.switchLanguage}
         className="
-          flex
+          inline-flex
           h-10
           w-10
           shrink-0
           items-center
           justify-center
           rounded-lg
-          text-xl
+          text-2xl
           transition-all
           duration-300
           hover:scale-110
-          dark:text-neutral-300
         "
       >
-        {localeFlags[locale]}
+        <span>{localeFlags[locale]}</span>
       </button>
 
       {isOpen && (
