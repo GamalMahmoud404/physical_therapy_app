@@ -109,7 +109,7 @@ export default function LanguageSwitcher({
                 }
               `}
             >
-              {localeNames[lang]}
+              <span>{localeFlags[lang]}</span> {localeNames[lang]}
             </button>
           ))}
         </div>
