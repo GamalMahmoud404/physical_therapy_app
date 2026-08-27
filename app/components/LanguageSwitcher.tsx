@@ -50,25 +50,19 @@ export default function LanguageSwitcher({
         className="
           flex
           h-10
-          min-w-10
+          w-10
           shrink-0
           items-center
           justify-center
           rounded-lg
-          px-2
-          text-sm
-          font-bold
-          text-gray-700
+          text-xl
           transition-all
           duration-300
-          hover:bg-gray-100
-          hover:text-blue-600
+          hover:scale-110
           dark:text-neutral-300
-          dark:hover:bg-neutral-800
-          dark:hover:text-sky-400
         "
       >
-        {locale.toUpperCase()}
+        {localeFlags[locale]}
       </button>
 
       {isOpen && (
