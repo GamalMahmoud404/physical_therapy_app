@@ -106,7 +106,7 @@ export default function Header({
 
           <div className="hidden flex-col sm:flex">
             <span className="text-sm font-bold text-gray-800 dark:text-neutral-100">
-              Dr. Atef Sabra
+              {dict.brand}
             </span>
             <span className="text-xs text-gray-500 dark:text-neutral-400">
               Physiotherapy
