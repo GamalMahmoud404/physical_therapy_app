@@ -48,20 +48,27 @@ export default function LanguageSwitcher({
         aria-label={dict.switchLanguage}
         title={dict.switchLanguage}
         className="
-          inline-flex
+          flex
           h-10
-          w-10
+          min-w-10
           shrink-0
           items-center
           justify-center
           rounded-lg
-          text-2xl
+          px-2
+          text-sm
+          font-bold
+          text-gray-700
           transition-all
           duration-300
-          hover:scale-110
+          hover:bg-gray-100
+          hover:text-blue-600
+          dark:text-neutral-300
+          dark:hover:bg-neutral-800
+          dark:hover:text-sky-400
         "
       >
-        <span>{localeFlags[locale]}</span>
+        {locale.toUpperCase()}
       </button>
 
       {isOpen && (
@@ -102,7 +109,7 @@ export default function LanguageSwitcher({
                 }
               `}
             >
-              <span>{localeFlags[lang]}</span> {localeNames[lang]}
+              {localeNames[lang]}
             </button>
           ))}
         </div>
