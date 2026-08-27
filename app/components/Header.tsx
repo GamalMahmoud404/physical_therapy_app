@@ -83,10 +83,10 @@ export default function Header({
             group
             flex
             items-center
-            gap-2
+            gap-3
             transition-all
             duration-300
-            hover:scale-110
+            hover:scale-105
           "
         >
 
@@ -101,6 +101,17 @@ export default function Header({
             priority
             className="h-8 w-8 shrink-0 sm:h-9 sm:w-9"
           />
+
+          {/* ================= BRAND NAME ================= */}
+
+          <div className="hidden flex-col sm:flex">
+            <span className="text-sm font-bold text-gray-800 dark:text-neutral-100">
+              Dr. Atef Sabra
+            </span>
+            <span className="text-xs text-gray-500 dark:text-neutral-400">
+              Physiotherapy
+            </span>
+          </div>
 
         </Link>
 
