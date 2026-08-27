@@ -178,12 +178,14 @@ export default function ContactForm({
       className="
         rounded-3xl
         border
-        border-gray-100
-        bg-white
+        border-white/30
+        bg-white/20
         p-6
-        shadow-xl
-        dark:border-neutral-800
-        dark:bg-neutral-900
+        backdrop-blur-xl
+        shadow-[0_8px_32px_rgba(31,38,135,0.15)]
+        dark:border-white/10
+        dark:bg-white/5
+        dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)]
         md:p-10
         lg:col-span-3
       "

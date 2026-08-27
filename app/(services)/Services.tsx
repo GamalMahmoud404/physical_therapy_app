@@ -203,19 +203,22 @@ export default function Services({ dict }: { dict: Dictionary }) {
                 overflow-hidden
                 rounded-3xl
                 border
-                border-slate-100
-                bg-white
+                border-white/30
+                bg-white/20
                 text-start
-                dark:border-neutral-800
-                dark:bg-neutral-900
-                shadow-[1px_1px_20px_-6px_rgb(196,196,196)]
+                backdrop-blur-xl
+                dark:border-white/10
+                dark:bg-white/5
+                shadow-[0_8px_32px_rgba(31,38,135,0.15)]
                 transition-all
                 duration-500
                 hover:-translate-y-3
-                hover:border-sky-100
-                hover:shadow-[1px_14px_35px_-12px_rgba(2,132,199,0.4)]
-                dark:shadow-[0_12px_32px_-6px_rgba(0,0,0,0.9)]
-                dark:hover:shadow-[0_22px_50px_-10px_rgba(0,0,0,0.95)]
+                hover:border-sky-200/60
+                hover:bg-white/30
+                hover:shadow-[0_20px_50px_rgba(2,132,199,0.25)]
+                dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)]
+                dark:hover:bg-white/10
+                dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]
               "
                style={{ transition: "all 0.3s ease" }}
             >
