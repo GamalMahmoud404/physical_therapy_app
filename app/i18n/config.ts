@@ -2,7 +2,7 @@
 // إعدادات اللغات — Locale configuration
 // =========================================================
 
-export const locales = ["ar", "en", "fr"] as const;
+export const locales = ["ar", "en", "fr", "es"] as const;
 
 export type Locale = (typeof locales)[number];
 
@@ -12,12 +12,14 @@ export const localeDirection: Record<Locale, "rtl" | "ltr"> = {
   ar: "rtl",
   en: "ltr",
   fr: "ltr",
+  es: "ltr",
 };
 
 export const localeNames: Record<Locale, string> = {
   ar: "العربية",
   en: "English",
   fr: "Français",
+  es: "Español",
 };
 
 export function isLocale(value: string): value is Locale {
