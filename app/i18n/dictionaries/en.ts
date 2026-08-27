@@ -26,6 +26,7 @@ export const en: Dictionary = {
 
   nav: {
     brand: "Dr. Atef Sabra",
+    brandSubtitle: "Physiotherapy",
     home: "Home",
     about: "About",
     services: "Services",

@@ -109,7 +109,7 @@ export default function Header({
               {dict.brand}
             </span>
             <span className="text-xs text-gray-500 dark:text-neutral-400">
-              Physiotherapy
+              {dict.brandSubtitle}
             </span>
           </div>
 

@@ -25,6 +25,7 @@ export const ar = {
 
   nav: {
     brand: "د. عاطف صبره",
+    brandSubtitle: "العلاج الطبيعي",
     home: "الرئيسية",
     about: "من نحن",
     services: "خدماتنا",
