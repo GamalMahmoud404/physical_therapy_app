@@ -213,19 +213,21 @@ export default function ArticlesPage({ dict }: { dict: Dictionary["articles"] })
                   overflow-hidden
                   rounded-3xl
                   border
-                  border-gray-100
-                  bg-white
+                  border-sky-200/40
+                  bg-white/70
+                  backdrop-blur-xl
                   p-7
-                  dark:border-neutral-800
-                  dark:bg-neutral-900
-                  shadow-[1px_1px_20px_-4px_rgb(212,212,212)]
+                  dark:border-sky-500/20
+                  dark:bg-neutral-900/50
+                  dark:backdrop-blur-xl
+                  shadow-[0_8px_32px_rgba(31,38,135,0.15)]
                   transition-all
                   duration-500
-                  hover:-translate-y-3
-                  hover:border-sky-100
-                  hover:shadow-[1px_12px_35px_-10px_rgba(2,132,199,0.35)]
-                  dark:shadow-[0_12px_32px_-6px_rgba(0,0,0,0.9)]
-                  dark:hover:shadow-[0_22px_50px_-10px_rgba(0,0,0,0.95)]
+                  hover:-translate-y-2
+                  hover:border-sky-300/60
+                  hover:shadow-[0_20px_50px_rgba(2,132,199,0.25)]
+                  dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)]
+                  dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]
                 "
                  style={{ transition: "all 0.3s ease" }}
               >
@@ -371,15 +373,22 @@ export default function ArticlesPage({ dict }: { dict: Dictionary["articles"] })
                       items-center
                       gap-2
                       rounded-full
-                      bg-neutral-900
+                      bg-gradient-to-r
+                      from-sky-600
+                      to-cyan-600
                       px-5
                       py-2.5
                       text-sm
                       font-semibold
                       text-white
+                      shadow-lg
+                      shadow-sky-500/30
                       transition-all
                       duration-300
-                      group-hover:bg-sky-600
+                      hover:shadow-xl
+                      hover:shadow-sky-500/50
+                      hover:-translate-y-0.5
+                      active:scale-95
                     "
                   >
                     {t.readMore}

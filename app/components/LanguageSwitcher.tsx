@@ -49,20 +49,25 @@ export default function LanguageSwitcher({
         className="
           flex
           h-10
-          w-10
+          min-w-10
           shrink-0
           items-center
           justify-center
           rounded-lg
-          text-lg
+          px-2
+          text-sm
+          font-bold
+          text-gray-700
           transition-all
           duration-300
-          hover:scale-110
-          hover:bg-gray-100/60
-          dark:hover:bg-neutral-800/60
+          hover:bg-gray-100
+          hover:text-blue-600
+          dark:text-neutral-300
+          dark:hover:bg-neutral-800
+          dark:hover:text-sky-400
         "
       >
-        {localeFlags[locale]}
+        {locale.toUpperCase()}
       </button>
 
       {isOpen && (
@@ -88,16 +93,13 @@ export default function LanguageSwitcher({
               key={lang}
               onClick={() => switchTo(lang)}
               className={`
-                flex
-                items-center
-                gap-3
+                block
                 w-full
                 px-4
                 py-3
                 text-sm
                 font-medium
-                transition-all
-                duration-300
+                transition-colors
                 text-left
                 ${
                   locale === lang
@@ -106,8 +108,7 @@ export default function LanguageSwitcher({
                 }
               `}
             >
-              <span className="text-lg">{localeFlags[lang]}</span>
-              <span>{localeNames[lang]}</span>
+              {localeNames[lang]}
             </button>
           ))}
         </div>
