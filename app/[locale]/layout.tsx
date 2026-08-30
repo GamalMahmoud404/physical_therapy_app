@@ -120,21 +120,17 @@ export default async function RootLayout({
     <html
       lang={locale}
       dir={dir}
-      className="h-full antialiased"
+      className={`${cairo.variable} h-full antialiased`}
       data-theme={theme}
       suppressHydrationWarning
     >
 
       <body
         className={`
-          ${cairo.variable}
           min-h-full
           flex
           flex-col
-          bg-white
-          font-cairo
           text-slate-900
-          dark:bg-neutral-950
           dark:text-neutral-100
         `}
       >

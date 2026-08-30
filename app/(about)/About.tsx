@@ -24,24 +24,17 @@ export default function About({ dict }: { dict: Dictionary }) {
 
       <section
         className="
+          glass
           relative
           mx-auto
           mt-16
           w-[calc(100%-2rem)]
           overflow-hidden
           rounded-3xl
-          bg-white/70
-          backdrop-blur-2xl
           px-6
           py-14
-          shadow-[0_20px_60px_rgba(31,38,135,0.2)]
-          ring-1
-          ring-white/40
           md:w-[91.666667%]
           md:px-12
-          dark:bg-neutral-900/40
-          dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
-          dark:ring-white/10
         "
       >
 
@@ -193,13 +186,8 @@ export default function About({ dict }: { dict: Dictionary }) {
                 text-3xl
                 font-bold
                 leading-tight
-                bg-gradient-to-r
-                from-gray-900
-                to-gray-700
-                dark:from-neutral-50
-                dark:to-neutral-200
-                bg-clip-text
-                text-transparent
+                text-gray-900
+                dark:text-neutral-50
                 md:text-4xl
               "
             >
@@ -217,7 +205,7 @@ export default function About({ dict }: { dict: Dictionary }) {
                     text-[16px]
                     font-normal
                     leading-9
-                    text-gray-500
+                    text-gray-600
                     md:text-[17px]
                     dark:text-neutral-400
                   "
@@ -235,31 +223,19 @@ export default function About({ dict }: { dict: Dictionary }) {
                 <li
                   key={credential}
                   className="
+                    glass-soft
                     group
                     flex
                     items-center
                     gap-3
                     rounded-xl
                     sm:last:odd:col-span-2
-                    border
-                    border-gray-200/50
-                    bg-white/60
-                    backdrop-blur-sm
                     px-4
                     py-3.5
-                    transition-all
+                    transition-colors
                     duration-300
                     hover:border-sky-300/80
-                    hover:bg-sky-50/40
-                    hover:shadow-md
-                    hover:shadow-sky-300/20
-                    dark:border-neutral-700/50
-                    dark:bg-neutral-800/30
-                    dark:backdrop-blur-sm
                     dark:hover:border-sky-500/60
-                    dark:hover:bg-sky-900/20
-                    dark:hover:shadow-md
-                    dark:hover:shadow-sky-500/30
                   "
                 >
                   <span
@@ -493,23 +469,16 @@ export default function About({ dict }: { dict: Dictionary }) {
 
             <div
               className="
+                glass
                 h-full
                 w-full
                 rounded-2xl
-                bg-white/80
                 px-5
                 py-8
-                ring-1
-                ring-sky-200/30
-                backdrop-blur-md
-                shadow-[0_8px_32px_rgba(15,23,42,0.15)]
                 sm:px-6
                 sm:py-10
                 md:px-10
                 md:py-12
-                dark:bg-neutral-900/50
-                dark:ring-sky-500/20
-                dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)]
               "
             >
 
@@ -523,16 +492,12 @@ export default function About({ dict }: { dict: Dictionary }) {
                 className="
                   mb-5
                   inline-block
-                  bg-gradient-to-r
-                  from-[rgb(121,13,13)]
-                  via-[rgba(10,198,204,0.701)]
-                  to-[rgb(184,13,241)]
-                  bg-clip-text
                   pb-1
                   text-3xl
                   font-extrabold
                   leading-[1.4]
-                  text-transparent
+                  text-slate-900
+                  dark:text-neutral-50
                   md:text-4xl
                 "
               >

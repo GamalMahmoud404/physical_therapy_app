@@ -74,17 +74,12 @@ export default function LanguageSwitcher({
       {isOpen && (
         <div
           className="
+            glass-strong
             absolute
             right-0
             top-12
             mt-2
             rounded-lg
-            bg-white
-            shadow-lg
-            dark:bg-neutral-800
-            border
-            border-gray-200/50
-            dark:border-neutral-700/50
             overflow-hidden
             z-50
           "

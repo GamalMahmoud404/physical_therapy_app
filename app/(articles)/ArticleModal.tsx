@@ -148,12 +148,8 @@ export default function ArticleModal({
           animate-modal-in
           flex-col
           overflow-hidden
+          glass-strong
           rounded-[2rem]
-          border
-          border-white/60
-          bg-white
-          dark:border-neutral-700
-          dark:bg-neutral-900
           shadow-[0_30px_100px_-20px_rgba(15,23,42,0.6)]
           outline-none
         "
@@ -218,7 +214,7 @@ export default function ArticleModal({
               bg-white
               text-2xl
               leading-none
-              text-gray-500
+              text-gray-600
               dark:border-neutral-700
               dark:bg-neutral-800
               dark:text-neutral-400
@@ -389,15 +385,14 @@ export default function ArticleModal({
 
         <div
           className="
+            glass-soft
             shrink-0
+            border-x-0
+            border-b-0
             border-t
-            border-gray-100
-            bg-gray-50/70
             px-6
             py-5
             md:px-10
-            dark:border-neutral-800
-            dark:bg-neutral-950/70
           "
         >
           <div className="flex flex-wrap items-center justify-between gap-3">

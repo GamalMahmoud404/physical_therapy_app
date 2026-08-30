@@ -34,10 +34,8 @@ export default function Services({ dict }: { dict: Dictionary }) {
         relative
         w-full
         overflow-hidden
-        bg-slate-50
         px-4
         py-24
-        dark:bg-neutral-950
       "
     >
       {/* ================= DECORATION ================= */}
@@ -52,7 +50,7 @@ export default function Services({ dict }: { dict: Dictionary }) {
           h-96
           w-96
           rounded-full
-          bg-sky-300/25
+          bg-slate-400/20
           blur-3xl
         "
       />
@@ -67,7 +65,7 @@ export default function Services({ dict }: { dict: Dictionary }) {
           h-96
           w-96
           rounded-full
-          bg-teal-300/20
+          bg-zinc-400/16
           blur-3xl
         "
       />
@@ -86,18 +84,13 @@ export default function Services({ dict }: { dict: Dictionary }) {
 
           <span
             className="
+              glass-soft
               inline-flex
               items-center
               gap-2.5
               rounded-full
-              border
-              border-sky-100
-              bg-white
               px-5
               py-2
-              shadow-sm
-              dark:border-neutral-800
-              dark:bg-neutral-900
             "
           >
             <span className="relative flex h-2.5 w-2.5">
@@ -119,14 +112,10 @@ export default function Services({ dict }: { dict: Dictionary }) {
 
             <span
               className="
-                bg-gradient-to-r
-                from-sky-600
-                via-cyan-500
-                to-teal-500
-                bg-clip-text
                 text-sm
                 font-bold
-                text-transparent
+                text-slate-700
+                dark:text-neutral-200
               "
             >
               {t.badge}
@@ -172,7 +161,7 @@ export default function Services({ dict }: { dict: Dictionary }) {
 
           {/* DESCRIPTION */}
 
-          <p className="mt-5 text-[17px] leading-9 text-gray-500 dark:text-neutral-400">
+          <p className="mt-5 text-[17px] leading-9 text-gray-600 dark:text-neutral-400">
             {t.description}
           </p>
 
@@ -196,31 +185,16 @@ export default function Services({ dict }: { dict: Dictionary }) {
               data-aos-delay={index * 100}
               data-aos-once="true"
               className="
+                glass
+                glass-hover
                 group
                 relative
                 flex
                 flex-col
                 overflow-hidden
                 rounded-3xl
-                border
-                border-white/30
-                bg-white/20
                 text-start
-                backdrop-blur-xl
-                dark:border-white/10
-                dark:bg-white/5
-                shadow-[0_8px_32px_rgba(31,38,135,0.15)]
-                transition-all
-                duration-500
-                hover:-translate-y-3
-                hover:border-sky-200/60
-                hover:bg-white/30
-                hover:shadow-[0_20px_50px_rgba(2,132,199,0.25)]
-                dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)]
-                dark:hover:bg-white/10
-                dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]
               "
-               style={{ transition: "all 0.3s ease" }}
             >
               {/* ================= MEDIA ================= */}
 
@@ -339,13 +313,9 @@ export default function Services({ dict }: { dict: Dictionary }) {
                     translate-y-1/2
                     items-center
                     justify-center
+                    glass-strong
                     rounded-2xl
-                    border
-                    border-slate-100
-                    bg-white
                     text-2xl
-                    dark:border-neutral-700
-                    dark:bg-neutral-800
                     shadow-[0_10px_25px_-10px_rgba(15,23,42,0.5)]
                     transition-transform
                     duration-500
@@ -379,7 +349,7 @@ export default function Services({ dict }: { dict: Dictionary }) {
 
                 {/* DESCRIPTION */}
 
-                <p className="flex-1 text-[15px] leading-8 text-gray-500 dark:text-neutral-400">
+                <p className="flex-1 text-[15px] leading-8 text-gray-600 dark:text-neutral-400">
                   {service.description}
                 </p>
 

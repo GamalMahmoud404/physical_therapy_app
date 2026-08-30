@@ -41,22 +41,17 @@ export default function Header({
   return (
     <nav
       className="
+        glass-strong
         fixed
         left-0
         top-0
         z-50
         w-full
+        border-x-0
+        border-t-0
         border-b
-        border-gray-200/50
-        bg-white/80
-        backdrop-blur-lg
-        shadow-lg
-        shadow-gray-300/20
-        transition-all
+        transition-colors
         duration-300
-        dark:border-neutral-700/50
-        dark:bg-neutral-900/80
-        dark:shadow-black/40
       "
     >
 
@@ -108,7 +103,7 @@ export default function Header({
             <span className="text-sm font-bold text-gray-800 dark:text-neutral-100">
               {dict.brand}
             </span>
-            <span className="text-xs text-gray-500 dark:text-neutral-400">
+            <span className="text-xs text-gray-600 dark:text-neutral-400">
               {dict.brandSubtitle}
             </span>
           </div>
@@ -218,18 +213,16 @@ export default function Header({
         inert={!isOpen}
         className={`
           overflow-hidden
+          border-x-0
+          border-b-0
           border-t
-          border-gray-200/30
-          bg-gradient-to-b
-          from-white/90
-          to-gray-50/80
-          backdrop-blur-sm
+          border-white/40
+          bg-white/30
           transition-all
           duration-300
           md:hidden
-          dark:border-neutral-700/30
-          dark:from-neutral-900/90
-          dark:to-neutral-950/80
+          dark:border-white/10
+          dark:bg-white/[0.04]
           ${
             isOpen
               ? "max-h-screen opacity-100"

@@ -21,15 +21,8 @@ export default function ArticlesPage({ dict }: { dict: Dictionary["articles"] })
         relative
         w-full
         overflow-hidden
-        bg-gradient-to-b
-        from-white
-        via-sky-50/40
-        to-white
         px-4
         py-24
-        dark:from-neutral-950
-        dark:via-neutral-900/25
-        dark:to-neutral-950
       "
     >
       {/* ================================================= */}
@@ -46,7 +39,7 @@ export default function ArticlesPage({ dict }: { dict: Dictionary["articles"] })
           h-80
           w-80
           rounded-full
-          bg-sky-300/20
+          bg-slate-400/18
           blur-3xl
         "
       />
@@ -61,7 +54,7 @@ export default function ArticlesPage({ dict }: { dict: Dictionary["articles"] })
           h-96
           w-96
           rounded-full
-          bg-purple-300/10
+          bg-slate-400/12
           blur-3xl
         "
       />
@@ -81,19 +74,13 @@ export default function ArticlesPage({ dict }: { dict: Dictionary["articles"] })
 
           <span
             className="
+              glass-soft
               inline-flex
               items-center
               gap-2.5
               rounded-full
-              border
-              border-sky-100
-              bg-white/80
               px-5
               py-2
-              shadow-sm
-              backdrop-blur-sm
-              dark:border-neutral-800
-              dark:bg-neutral-900/80
             "
           >
             <span className="relative flex h-2.5 w-2.5">
@@ -115,14 +102,10 @@ export default function ArticlesPage({ dict }: { dict: Dictionary["articles"] })
 
             <span
               className="
-                bg-gradient-to-r
-                from-sky-600
-                via-cyan-500
-                to-teal-500
-                bg-clip-text
                 text-sm
                 font-bold
-                text-transparent
+                text-slate-700
+                dark:text-neutral-200
               "
             >
               {t.badge}
@@ -173,7 +156,7 @@ export default function ArticlesPage({ dict }: { dict: Dictionary["articles"] })
               max-w-2xl
               text-[17px]
               leading-9
-              text-gray-500
+              text-gray-600
               dark:text-neutral-400
             "
           >
@@ -204,6 +187,8 @@ export default function ArticlesPage({ dict }: { dict: Dictionary["articles"] })
                 data-aos-once="true"
                 data-article-id={article.id}
                 className="
+                  glass
+                  glass-hover
                   group
                   relative
                   flex
@@ -212,24 +197,8 @@ export default function ArticlesPage({ dict }: { dict: Dictionary["articles"] })
                   flex-col
                   overflow-hidden
                   rounded-3xl
-                  border
-                  border-sky-200/40
-                  bg-white/70
-                  backdrop-blur-xl
                   p-7
-                  dark:border-sky-500/20
-                  dark:bg-neutral-900/50
-                  dark:backdrop-blur-xl
-                  shadow-[0_8px_32px_rgba(31,38,135,0.15)]
-                  transition-all
-                  duration-500
-                  hover:-translate-y-2
-                  hover:border-sky-300/60
-                  hover:shadow-[0_20px_50px_rgba(2,132,199,0.25)]
-                  dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)]
-                  dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]
                 "
-                 style={{ transition: "all 0.3s ease" }}
               >
                 {/* TOP ACCENT */}
 
@@ -290,15 +259,14 @@ export default function ArticlesPage({ dict }: { dict: Dictionary["articles"] })
 
                   <span
                     className="
+                      glass-soft
                       rounded-full
-                      border
-                      border-gray-100
-                      bg-gray-50
                       px-4
                       py-1.5
                       text-xs
                       font-bold
-                      text-gray-500
+                      text-gray-600
+                      dark:text-neutral-300
                       transition
                       duration-300
                       group-hover:border-sky-200
@@ -335,7 +303,7 @@ export default function ArticlesPage({ dict }: { dict: Dictionary["articles"] })
                     {article.title}
                   </h3>
 
-                  <p className="mt-4 line-clamp-3 text-[15px] leading-8 text-gray-500 dark:text-neutral-400">
+                  <p className="mt-4 line-clamp-3 text-[15px] leading-8 text-gray-600 dark:text-neutral-400">
                     {article.description}
                   </p>
                 </div>

@@ -21,30 +21,17 @@ import {
 // =========================
 
 const fieldClasses = `
+  glass-input
   w-full
   rounded-2xl
-  border
-  border-gray-200
-  bg-gray-50/70
   py-3.5
   pe-4
   ps-12
   text-[15px]
   text-gray-800
-  outline-none
-  transition
-  placeholder:text-gray-400
-  focus:border-sky-400
-  focus:bg-white
-  focus:ring-4
-  focus:ring-sky-100
-  dark:border-neutral-700
-  dark:bg-neutral-800/70
+  placeholder:text-gray-600
   dark:text-neutral-100
-  dark:placeholder:text-neutral-500
-  dark:focus:border-sky-500
-  dark:focus:bg-neutral-800
-  dark:focus:ring-sky-900/50
+  dark:placeholder:text-neutral-400
   disabled:cursor-not-allowed
   disabled:opacity-60
 `;
@@ -176,16 +163,9 @@ export default function ContactForm({
       data-aos-delay="200"
       data-aos-once="true"
       className="
+        glass
         rounded-3xl
-        border
-        border-white/30
-        bg-white/20
         p-6
-        backdrop-blur-xl
-        shadow-[0_8px_32px_rgba(31,38,135,0.15)]
-        dark:border-white/10
-        dark:bg-white/5
-        dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)]
         md:p-10
         lg:col-span-3
       "
@@ -220,7 +200,7 @@ export default function ContactForm({
             {t.formHeading}
           </h3>
 
-          <p className="mt-2 text-sm leading-7 text-gray-500 dark:text-neutral-400">
+          <p className="mt-2 text-sm leading-7 text-gray-600 dark:text-neutral-400">
             {t.formDescription}
           </p>
         </div>

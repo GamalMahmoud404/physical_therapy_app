@@ -25,15 +25,8 @@ export default function Contact({
         relative
         w-full
         overflow-hidden
-        bg-gradient-to-b
-        from-white
-        via-sky-50/50
-        to-white
         px-4
         py-24
-        dark:from-neutral-950
-        dark:via-neutral-900/30
-        dark:to-neutral-950
       "
     >
 
@@ -51,7 +44,7 @@ export default function Contact({
           h-80
           w-80
           rounded-full
-          bg-sky-300/25
+          bg-slate-400/20
           blur-3xl
         "
       />
@@ -66,7 +59,7 @@ export default function Contact({
           h-96
           w-96
           rounded-full
-          bg-purple-300/15
+          bg-slate-400/14
           blur-3xl
         "
       />
@@ -88,19 +81,13 @@ export default function Contact({
 
           <span
             className="
+              glass-soft
               inline-flex
               items-center
               gap-2.5
               rounded-full
-              border
-              border-sky-100
-              bg-white/80
               px-5
               py-2
-              shadow-sm
-              backdrop-blur-sm
-              dark:border-neutral-800
-              dark:bg-neutral-900/80
             "
           >
             <span className="relative flex h-2.5 w-2.5">
@@ -130,14 +117,10 @@ export default function Contact({
 
             <span
               className="
-                bg-gradient-to-r
-                from-[rgb(121,13,13)]
-                via-[rgba(10,198,204,0.701)]
-                to-[rgb(184,13,241)]
-                bg-clip-text
                 text-sm
                 font-bold
-                text-transparent
+                text-slate-700
+                dark:text-neutral-200
               "
             >
               {t.badge}
@@ -190,7 +173,7 @@ export default function Contact({
               max-w-2xl
               text-[17px]
               leading-9
-              text-gray-500
+              text-gray-600
               dark:text-neutral-400
             "
           >
@@ -232,12 +215,16 @@ export default function Contact({
                 relative
                 overflow-hidden
                 rounded-3xl
+                border
+                border-white/25
                 bg-gradient-to-br
-                from-sky-600
-                to-sky-800
+                from-sky-600/85
+                to-sky-800/85
                 p-8
                 text-white
-                shadow-xl
+                shadow-[0_12px_40px_rgba(2,132,199,0.35)]
+                backdrop-blur-xl
+                backdrop-saturate-150
               "
             >
 

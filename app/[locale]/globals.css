@@ -28,6 +28,9 @@
 html {
   scroll-behavior: smooth;
   color-scheme: light;
+  /* خط الموقع كله: Cairo القادم من next/font — المتغيّر معرَّف على <html>
+     ويشمل البديل المولَّد تلقائيًا (Cairo Fallback) لتفادي قفزة التخطيط */
+  font-family: var(--font-cairo), sans-serif;
   /* Enhanced typography baseline */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -38,6 +41,14 @@ html {
 
 html[data-theme="dark"] {
   color-scheme: dark;
+}
+
+/* الشريط العلوي ثابت فوق الصفحة. بدون هامش تمرير، الضغط على رابط
+   مثل #contact يوقف القسم عند y=0 فيقع عنوانه خلف الزجاج ويبدو
+   شبحًا باهتًا. الهامش يزيح هدف التمرير أسفل الشريط. */
+#home,
+section[id] {
+  scroll-margin-top: 6rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -79,9 +90,13 @@ html[data-theme="dark"] {
   }
 }
 
-@theme {
-  --font-cairo: "Cairo", sans-serif;
+@theme inline {
+  /* Cairo هو الخط الافتراضي لكل شيء: بهذا يصير font-sans و
+     إعادة الضبط (preflight) في Tailwind يشيران إلى Cairo لا إلى خط النظام */
+  --font-sans: var(--font-cairo), sans-serif;
+}
 
+@theme {
   --animate-fade-up: fadeUp 1s ease-out both;
   --animate-fade-in: fadeIn 1.2s ease-out both;
   --animate-fade-right: fadeRight 1s ease-out 0.3s both;
@@ -145,5 +160,269 @@ html[data-theme="dark"] {
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+/* ============================================================
+   نظام الزجاج (Glassmorphism)
+   ============================================================
+
+   الزجاج لا يُرى إلا إذا كان خلفه شيء يستحق الضبابية. لذلك
+   النظام من طبقتين:
+
+   1) طبقة "الشفق" — خلفية ثابتة خلف الصفحة كلها فيها تدرّجات
+      لونية عريضة. هي التي تظهر خلف كل لوح زجاجي فتمنحه العمق.
+   2) أصناف الزجاج — .glass و .glass-strong و .glass-soft
+      تقرأ قيمها من متغيّرات، فيتغيّر الوضع الليلي من مكان واحد.
+
+   لماذا متغيّرات وليس أدوات Tailwind مباشرة؟ لأن كل لوح كان
+   يحمل نحو عشرين كلاسًا (bg-white/70 backdrop-blur-xl shadow-[...]‎)
+   بقيم مختلفة قليلًا في كل مكوّن. المتغيّرات توحّدها وتجعل ضبط
+   شدّة الزجاج كلها تعديلًا في سطر واحد. */
+
+:root {
+  /* ---------- الشفق: الوضع النهاري ---------- */
+  --aurora-base: #f3f4f6;
+  --aurora-1: rgba(148, 163, 184, 0.3);
+  --aurora-2: rgba(161, 161, 170, 0.22);
+  --aurora-3: rgba(100, 116, 139, 0.16);
+  --aurora-4: rgba(120, 133, 150, 0.18);
+
+  /* ---------- الزجاج: الوضع النهاري ---------- */
+  --glass-blur: 16px;
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-bg-hover: rgba(255, 255, 255, 0.7);
+  /* الحدّ الخارجي أغمق من اللوح، واللمعة البيضاء تبقى داخلية عبر
+     inset في الظل. الحدّ الأبيض على لوح فاتح تباينه 1.02:1 — أي لا
+     شيء. حقول الإدخال تأخذ حدًّا أوضح قليلًا من الألواح لأنها
+     عناصر تفاعلية، لكنه يبقى خطًّا رفيعًا لا إطارًا ثقيلًا —
+     إبراز الحقل الحقيقي يحدث عند التركيز لا في حالة السكون. */
+  --glass-border: rgba(15, 23, 42, 0.12);
+  --glass-border-strong: rgba(15, 23, 42, 0.22);
+  --glass-border-hover: rgba(15, 23, 42, 0.3);
+  --glass-sheen: rgba(255, 255, 255, 0.75);
+  --glass-shadow: 0 8px 32px rgba(15, 23, 42, 0.1);
+  --glass-shadow-hover: 0 20px 48px rgba(15, 23, 42, 0.16);
+}
+
+html[data-theme="dark"] {
+  --aurora-base: #0a0b0e;
+  --aurora-1: rgba(148, 163, 184, 0.13);
+  --aurora-2: rgba(161, 161, 170, 0.1);
+  --aurora-3: rgba(100, 116, 139, 0.13);
+  --aurora-4: rgba(120, 133, 150, 0.1);
+
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-bg-hover: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.13);
+  --glass-border-strong: rgba(255, 255, 255, 0.2);
+  --glass-border-hover: rgba(255, 255, 255, 0.3);
+  --glass-sheen: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --glass-shadow-hover: 0 20px 48px rgba(0, 0, 0, 0.6);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --aurora-base: #0a0b0e;
+    --aurora-1: rgba(148, 163, 184, 0.13);
+    --aurora-2: rgba(161, 161, 170, 0.1);
+    --aurora-3: rgba(100, 116, 139, 0.13);
+    --aurora-4: rgba(120, 133, 150, 0.1);
+
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-bg-hover: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.13);
+    --glass-border-strong: rgba(255, 255, 255, 0.2);
+    --glass-border-hover: rgba(255, 255, 255, 0.3);
+    --glass-sheen: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+    --glass-shadow-hover: 0 20px 48px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* ============================================================
+   طبقة الشفق
+   ============================================================
+   ثابتة (fixed) خلف كل شيء: تبقى مكانها أثناء التمرير فيبقى
+   عمق الزجاج متّسقًا من أعلى الصفحة إلى أسفلها. inset سالب
+   ليخفي حواف الحركة البطيئة. */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -15%;
+  z-index: -1;
+  background-color: var(--aurora-base);
+  background-image:
+    radial-gradient(48rem 34rem at 12% 4%, var(--aurora-1), transparent 62%),
+    radial-gradient(42rem 30rem at 88% 12%, var(--aurora-2), transparent 62%),
+    radial-gradient(40rem 34rem at 78% 82%, var(--aurora-3), transparent 62%),
+    radial-gradient(36rem 28rem at 8% 88%, var(--aurora-4), transparent 62%);
+}
+
+/* لماذا الشفق ثابت لا متحرّك؟
+   كل عنصر زجاجي يعيد حساب ضبابيته كلما تغيّر ما خلفه، وفي الصفحة
+   عشرة ألواح فأكثر. خلفية متحرّكة تعني إعادة حساب لكلٍّ منها في
+   كل إطار طوال وجود المستخدم في الصفحة، مقابل حركة لا تكاد تُرى.
+   الخلفية الساكنة تُرسم مرة واحدة. */
+
+/* ============================================================
+   أصناف الزجاج
+   ============================================================ */
+
+@layer components {
+  .glass,
+  .glass-strong,
+  .glass-soft {
+    background-color: var(--glass-bg);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--glass-border);
+    box-shadow: var(--glass-shadow), inset 0 1px 0 var(--glass-sheen);
+  }
+
+  .glass,
+  .glass-strong {
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(115%);
+    backdrop-filter: blur(var(--glass-blur)) saturate(115%);
+  }
+
+  /* للعناصر التي يمر تحتها محتوى ويجب أن يبقى نصّها مقروءًا:
+     الشريط العلوي، النوافذ المنبثقة */
+  .glass-strong {
+    --glass-blur: 24px;
+    --glass-bg: rgba(255, 255, 255, 0.78);
+  }
+
+  html[data-theme="dark"] .glass-strong {
+    --glass-bg: rgba(9, 12, 20, 0.72);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]) .glass-strong {
+      --glass-bg: rgba(9, 12, 20, 0.72);
+    }
+  }
+
+  /* للعناصر الصغيرة داخل لوح زجاجي آخر — شارات، أيقونات، حقول.
+     ضبابية أخف حتى لا تتراكم طبقتان فيصير الناتج معتمًا */
+  .glass-soft {
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    box-shadow: inset 0 1px 0 var(--glass-sheen);
+  }
+
+  html[data-theme="dark"] .glass-soft {
+    --glass-bg: rgba(255, 255, 255, 0.04);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]) .glass-soft {
+      --glass-bg: rgba(255, 255, 255, 0.04);
+    }
+  }
+
+  /* الحركة عند المرور — ترفع اللوح وتزيد لمعانه */
+  .glass-hover {
+    transition: background-color 200ms ease, border-color 200ms ease,
+      box-shadow 300ms ease, transform 300ms ease;
+  }
+
+  .glass-hover:hover {
+    background-color: var(--glass-bg-hover);
+    border-color: var(--glass-border-hover);
+    box-shadow: var(--glass-shadow-hover), inset 0 1px 0 var(--glass-sheen);
+    transform: translateY(-6px);
+  }
+
+  /* حقول النماذج */
+  /* حدّ الحقل رمادي شفّاف واحد لا يتبع الوضع — يغمق فوق اللوح
+     الفاتح ويفتح فوق الداكن، فيبقى خطًّا رفيعًا واضحًا في الحالتين.
+
+     ولماذا لا نبدّله مع الوضع كباقي الزجاج؟ لأن زر التبديل يكتب
+     data-theme على <html> بلا إعادة تحميل، والمتصفّح لا يعيد حساب
+     لون حدّ عناصر النماذج الموجودة عندها — تبقى على لون الوضع
+     السابق (حقل يُنشأ بعدها يأخذ اللون الصحيح، وهو ما يؤكّد أن
+     المشكلة في الإبطال لا في الأنماط). لون محايد واحد يتفادى
+     المسألة من أصلها. */
+  .glass-input {
+    background-color: rgba(255, 255, 255, 0.45);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(128, 128, 128, 0.38);
+    transition: background-color 200ms ease, border-color 200ms ease,
+      box-shadow 200ms ease;
+  }
+
+  html[data-theme="dark"] .glass-input {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]) .glass-input {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  .glass-input:hover {
+    border-color: rgba(128, 128, 128, 0.6);
+  }
+
+  .glass-input:focus {
+    border-color: rgba(128, 128, 128, 0.95);
+    box-shadow: 0 0 0 3px rgba(128, 128, 128, 0.28);
+    outline: none;
+  }
+}
+
+/* ============================================================
+   بدائل السلامة
+   ============================================================ */
+
+/* متصفّح بلا backdrop-filter: الشفافية وحدها تجعل النص غير مقروء،
+   فنرفع العتامة بدلًا من الاعتماد على ضبابية غير موجودة */
+@supports not (
+  (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+) {
+  :root {
+    --glass-bg: rgba(255, 255, 255, 0.92);
+    --glass-bg-hover: rgba(255, 255, 255, 0.97);
+  }
+
+  html[data-theme="dark"] {
+    --glass-bg: rgba(15, 18, 26, 0.94);
+    --glass-bg-hover: rgba(22, 26, 36, 0.97);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]) {
+      --glass-bg: rgba(15, 18, 26, 0.94);
+      --glass-bg-hover: rgba(22, 26, 36, 0.97);
+    }
+  }
+}
+
+/* من يطلب تقليل الشفافية (إعداد نظام لضعاف البصر) يحصل على
+   ألواح مصمتة — الضبابية تُلغى تمامًا */
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --glass-bg: rgba(255, 255, 255, 0.96);
+    --glass-bg-hover: #ffffff;
+  }
+
+  html[data-theme="dark"] {
+    --glass-bg: rgba(13, 16, 23, 0.97);
+    --glass-bg-hover: rgb(20, 24, 33);
+  }
+
+  .glass,
+  .glass-strong,
+  .glass-soft,
+  .glass-input {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  body::before {
+    background-image: none;
   }
 }

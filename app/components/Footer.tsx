@@ -22,15 +22,12 @@ export default function Footer({ dict }: { dict: Dictionary }) {
   return (
     <footer
       className="
-        bg-gradient-to-b
-        from-neutral-800
-        to-neutral-950
-        text-white
-        dark:from-neutral-900
-        dark:to-neutral-950
         border-t
-        border-neutral-700
-        dark:border-neutral-800
+        border-white/10
+        bg-slate-950/70
+        text-white
+        backdrop-blur-2xl
+        backdrop-saturate-150
       "
     >
 
@@ -126,8 +123,8 @@ export default function Footer({ dict }: { dict: Dictionary }) {
                     justify-center
                     h-10
                     w-10
+                    glass-soft
                     rounded-full
-                    bg-neutral-700
                     hover:bg-sky-600
                     transition-all
                     duration-300
@@ -169,9 +166,6 @@ export default function Footer({ dict }: { dict: Dictionary }) {
         >
           <p className="mb-2">
             © {currentYear} {dict.footer.rights}
-          </p>
-          <p className="text-xs">
-            تم تطويره بـ ❤️ لتقديم أفضل خدمات العلاج الطبيعي
           </p>
         </div>
 

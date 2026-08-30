@@ -167,11 +167,11 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
 
               <div
                 className="
+                  glass-strong
                   absolute
                   inset-0
-                  bg-white
+                  border-0
                   md:hidden
-                  dark:bg-neutral-950
                 "
               />
 
