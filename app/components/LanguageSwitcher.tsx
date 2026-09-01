@@ -15,23 +15,21 @@ const localeFlags: Record<Locale, string> = {
   es: "/sp.webp",
 };
 
-function Flag({ lang, className = "" }: { lang: Locale; className?: string }) {
+function Flag({ lang, size = "sm" }: { lang: Locale; size?: "sm" | "md" }) {
   return (
     <Image
       src={localeFlags[lang]}
       alt={localeNames[lang]}
-      width={24}
-      height={18}
+      width={28}
+      height={21}
       className={`
-        h-[18px]
-        w-6
+        ${size === "md" ? "h-[21px] w-7" : "h-[18px] w-6"}
         shrink-0
         rounded-sm
         object-cover
         ring-1
         ring-black/10
         dark:ring-white/15
-        ${className}
       `}
     />
   );
@@ -93,8 +91,7 @@ export default function LanguageSwitcher({
           dark:hover:text-sky-400
         "
       >
-        <Flag lang={locale} />
-        {locale.toUpperCase()}
+        <Flag lang={locale} size="md" />
       </button>
 
       {isOpen && (
