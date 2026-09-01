@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { Dictionary } from "../i18n/getDictionary";
 
 // صور الطبيب — ثابتة، النصوص تأتي من القاموس
-const doctorImages = ["/G.jpeg"];
+const doctorImages = ["/p.jpeg"];
 
 export default function About({ dict }: { dict: Dictionary }) {
   const t = dict.about;
