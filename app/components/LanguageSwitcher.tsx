@@ -1,17 +1,41 @@
 "use client";
 
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
 import { locales, localeNames, type Locale } from "../i18n/config";
 import type { Dictionary } from "../i18n/getDictionary";
 
+// أعلام اللغات — صور من مجلد public
 const localeFlags: Record<Locale, string> = {
-  ar: "🇸🇦",
-  en: "🇺🇸",
-  fr: "🇫🇷",
-  es: "🇪🇸",
+  ar: "/su.webp",
+  en: "/pr.png",
+  fr: "/fr.png",
+  es: "/sp.webp",
 };
+
+function Flag({ lang, className = "" }: { lang: Locale; className?: string }) {
+  return (
+    <Image
+      src={localeFlags[lang]}
+      alt={localeNames[lang]}
+      width={24}
+      height={18}
+      className={`
+        h-[18px]
+        w-6
+        shrink-0
+        rounded-sm
+        object-cover
+        ring-1
+        ring-black/10
+        dark:ring-white/15
+        ${className}
+      `}
+    />
+  );
+}
 
 export default function LanguageSwitcher({
   locale,
@@ -54,6 +78,7 @@ export default function LanguageSwitcher({
           shrink-0
           items-center
           justify-center
+          gap-2
           rounded-lg
           px-2
           text-sm
@@ -68,6 +93,7 @@ export default function LanguageSwitcher({
           dark:hover:text-sky-400
         "
       >
+        <Flag lang={locale} />
         {locale.toUpperCase()}
       </button>
 
@@ -89,8 +115,11 @@ export default function LanguageSwitcher({
               key={lang}
               onClick={() => switchTo(lang)}
               className={`
-                block
+                flex
                 w-full
+                items-center
+                gap-3
+                whitespace-nowrap
                 px-4
                 py-3
                 text-sm
@@ -104,6 +133,7 @@ export default function LanguageSwitcher({
                 }
               `}
             >
+              <Flag lang={lang} />
               {localeNames[lang]}
             </button>
           ))}
