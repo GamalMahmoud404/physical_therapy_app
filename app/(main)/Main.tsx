@@ -147,11 +147,11 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
               <div className="absolute inset-0 bg-black/30" />
 
               {/*
-                على الهاتف الصورة تنتهي عند لوح النص بخط أفقي حاد.
-                هذا التدرّج يذيب الحافة في لون الصفحة نفسه
-                (‎--aurora-base‎ فيتبع الوضع الليلي تلقائيًا).
-                لا نستخدم ‎--glass-bg‎ لأن قيمة .glass-strong محصورة
-                داخل اللوح نفسه ولا تصل إلى هنا.
+                على الهاتف الصورة تنتهي عند لوح النص بخط أفقي حاد،
+                وهذا التدرّج يذيبها فيه. شرط اختفاء الفاصل أن ينتهي
+                التدرّج عند لون اللوح نفسه بالضبط — لذلك اللوح صار
+                معتمًا بـ ‎--aurora-base‎ والتدرّج ينتهي عند القيمة
+                ذاتها، فيتبعان الوضع الليلي معًا من متغيّر واحد.
               */}
 
               <div
@@ -160,7 +160,7 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
                   absolute
                   inset-x-0
                   bottom-0
-                  h-16
+                  h-40
                   bg-gradient-to-t
                   from-[var(--aurora-base)]
                   to-transparent
@@ -196,12 +196,16 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
 
               {/* خلفية مصمتة خلف النص — الهاتف فقط */}
 
+              {/*
+                لون الصفحة لا زجاج: الزجاج شفاف، فلونه الناتج يتغيّر
+                بما خلفه ولا يمكن للتدرّج أن ينتهي عنده بالضبط.
+              */}
+
               <div
                 className="
-                  glass-strong
                   absolute
                   inset-0
-                  border-0
+                  bg-[var(--aurora-base)]
                   md:hidden
                 "
               />
@@ -229,15 +233,16 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
 
                 {/*
                   على الهاتف: النص داخل بطاقة زجاجية مستقلة.
-                  glass-soft لأن البطاقة تقع داخل لوح glass-strong،
-                  وطبقتا ضبابية فوق بعضهما تُعتِمان الناتج.
+                  glass لا glass-soft: اللوح تحتها صار لون الصفحة
+                  المعتم لا لوحًا زجاجيًا، فهذه بطاقة على الخلفية
+                  تمامًا كبطاقات بقية الأقسام.
                   من md تُلغى صفات البطاقة (خلفية وحد وحشو وحواف)
                   فيعود العنصر مجرّد حاوية عرض كما كان.
                 */}
 
                 <div
                   className="
-                    glass-soft
+                    glass
                     max-w-xl
                     rounded-3xl
                     px-6
@@ -247,6 +252,7 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
                     md:bg-transparent
                     md:p-0
                     md:shadow-none
+                    md:[backdrop-filter:none]
                   "
                 >
 
@@ -525,7 +531,7 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
             justify-center
             gap-2
             rounded-full
-            bg-black/45
+            bg-black/55
             px-3
             py-1.5
             backdrop-blur-md
