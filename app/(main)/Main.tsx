@@ -67,6 +67,13 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
       {/* HERO */}
       {/* ========================= */}
 
+      {/*
+        على هاتف بوضع أفقي (ارتفاع ≤ 520px) لا تتّسع الشاشة للصورة
+        وبطاقة النص معًا. بدل ضغط الاثنين حتى يُقصّ الزر، نمنح القسم
+        ارتفاعًا ثابتًا ويمرّر المستخدم قليلًا — وهو السلوك المعتاد
+        للأقسام البطلة على الشاشات القصيرة.
+      */}
+
       <section
         className="
           relative
@@ -74,6 +81,7 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
           w-full
           overflow-hidden
           bg-neutral-900
+          max-md:[@media(max-height:520px)]:h-[34rem]
         "
       >
 
@@ -115,7 +123,7 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
             <div
               className="
                 relative
-                h-[40%]
+                h-[48%]
                 w-full
                 shrink-0
                 md:absolute
@@ -137,6 +145,28 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
               {/* ========================= */}
 
               <div className="absolute inset-0 bg-black/30" />
+
+              {/*
+                على الهاتف الصورة تنتهي عند لوح النص بخط أفقي حاد.
+                هذا التدرّج يذيب الحافة في لون الصفحة نفسه
+                (‎--aurora-base‎ فيتبع الوضع الليلي تلقائيًا).
+                لا نستخدم ‎--glass-bg‎ لأن قيمة .glass-strong محصورة
+                داخل اللوح نفسه ولا تصل إلى هنا.
+              */}
+
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-x-0
+                  bottom-0
+                  h-16
+                  bg-gradient-to-t
+                  from-[var(--aurora-base)]
+                  to-transparent
+                  md:hidden
+                "
+              />
             </div>
 
             {/* ========================= */}
@@ -155,7 +185,8 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
                 min-h-0
                 flex-1
                 items-center
-                py-8
+                pt-10
+                pb-8
                 md:absolute
                 md:inset-0
                 md:pt-16
@@ -194,9 +225,30 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
                 "
               />
 
-              <div className="relative z-10 mx-auto w-full max-w-7xl px-6 md:px-28">
+              <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-28">
 
-                <div className="max-w-xl">
+                {/*
+                  على الهاتف: النص داخل بطاقة زجاجية مستقلة.
+                  glass-soft لأن البطاقة تقع داخل لوح glass-strong،
+                  وطبقتا ضبابية فوق بعضهما تُعتِمان الناتج.
+                  من md تُلغى صفات البطاقة (خلفية وحد وحشو وحواف)
+                  فيعود العنصر مجرّد حاوية عرض كما كان.
+                */}
+
+                <div
+                  className="
+                    glass-soft
+                    max-w-xl
+                    rounded-3xl
+                    px-6
+                    py-8
+                    md:rounded-none
+                    md:border-0
+                    md:bg-transparent
+                    md:p-0
+                    md:shadow-none
+                  "
+                >
 
                   {/* SMALL TITLE */}
 
@@ -230,6 +282,7 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
                       <TitleTag
                         className="
                           mb-4
+                          text-balance
                           text-3xl
                           font-bold
                           leading-tight
@@ -279,13 +332,17 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
                     className="
                       group
                       relative
-                      inline-flex
+                      flex
+                      w-full
+                      justify-center
                       overflow-hidden
                       rounded-xl
                       border
                       border-sky-600
                       px-8
                       py-3.5
+                      sm:inline-flex
+                      sm:w-auto
                       font-bold
                       text-sky-600
                       shadow-lg
@@ -449,17 +506,36 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
         {/* INDICATORS */}
         {/* ========================= */}
 
+        {/*
+          على الهاتف الشريط يطفو فوق أسفل الصورة، فالنقاط البيضاء قد
+          تقع على منطقة فاتحة فتختفي. الحبّة الداكنة خلفها تضمن
+          ظهورها مهما كانت الصورة، وتُلغى من md حيث الشريط أسفل الشاشة.
+        */}
+
         <div
           className="
             absolute
             inset-x-0
-            bottom-[calc(60%+0.75rem)]
+            bottom-[calc(52%+0.5rem)]
             z-20
+            mx-auto
             flex
-            justify-center
+            w-fit
             items-center
+            justify-center
             gap-2
+            rounded-full
+            bg-black/45
+            px-3
+            py-1.5
+            backdrop-blur-md
             md:bottom-6
+            md:py-0
+            md:w-full
+            md:rounded-none
+            md:bg-transparent
+            md:px-0
+            md:backdrop-blur-none
           "
         >
           {slides.map((slide, index) => (
@@ -499,12 +575,14 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
             className="
               ms-3
               flex
-              h-10
-              w-10
+              h-9
+              w-9
               items-center
               justify-center
               rounded-full
               bg-gradient-to-br
+              md:h-10
+              md:w-10
               from-sky-600
               to-blue-700
               text-xs
