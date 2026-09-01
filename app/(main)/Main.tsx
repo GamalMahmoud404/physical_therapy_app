@@ -20,17 +20,14 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
   }));
 
   const [current, setCurrent] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
 
   // =========================
   // AUTO SLIDE
   // =========================
-  // متوقف عند: ضغط زر الإيقاف، أو تفضيل المستخدم تقليل الحركة
-  // (WCAG 2.2.2 — يجب توفير وسيلة لإيقاف المحتوى المتحرك تلقائيًا)
+  // يعمل باستمرار. الاستثناء الوحيد أن يطلب المستخدم تقليل الحركة
+  // من إعدادات نظامه، فنحترم طلبه ونوقف التبديل التلقائي.
 
   useEffect(() => {
-    if (isPaused) return;
-
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -42,7 +39,7 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [slides.length]);
 
   // =========================
   // NEXT
@@ -507,108 +504,6 @@ export default function Main({ dict }: { dict: Dictionary["hero"] }) {
         >
           ›
         </button>
-
-        {/* ========================= */}
-        {/* INDICATORS */}
-        {/* ========================= */}
-
-        {/*
-          على الهاتف الشريط يطفو فوق أسفل الصورة، فالنقاط البيضاء قد
-          تقع على منطقة فاتحة فتختفي. الحبّة الداكنة خلفها تضمن
-          ظهورها مهما كانت الصورة، وتُلغى من md حيث الشريط أسفل الشاشة.
-        */}
-
-        <div
-          className="
-            absolute
-            inset-x-0
-            bottom-[calc(52%+0.5rem)]
-            z-20
-            mx-auto
-            flex
-            w-fit
-            items-center
-            justify-center
-            gap-2
-            rounded-full
-            bg-black/55
-            px-3
-            py-1.5
-            backdrop-blur-md
-            md:bottom-6
-            md:py-0
-            md:w-full
-            md:rounded-none
-            md:bg-transparent
-            md:px-0
-            md:backdrop-blur-none
-          "
-        >
-          {slides.map((slide, index) => (
-            <button
-              key={slide.image}
-              type="button"
-              onClick={() => setCurrent(index)}
-              aria-label={`${dict.goToSlide} ${index + 1}`}
-              aria-current={index === current}
-              className="group flex h-10 items-center px-1 transition-transform hover:scale-110"
-            >
-              <span
-                className={`
-                  block
-                  h-2.5
-                  rounded-full
-                  transition-all
-                  duration-500
-                  ${
-                    index === current
-                      ? "w-12 bg-gradient-to-r from-sky-600 to-cyan-600 shadow-lg shadow-sky-600/40"
-                      : "w-2.5 bg-white/60 group-hover:bg-white shadow-md"
-                  }
-                `}
-              />
-            </button>
-          ))}
-
-          {/* ================= PAUSE / PLAY ================= */}
-
-          <button
-            type="button"
-            onClick={() => setIsPaused((prev) => !prev)}
-            aria-label={
-              isPaused ? dict.playAutoplay : dict.pauseAutoplay
-            }
-            className="
-              ms-3
-              flex
-              h-9
-              w-9
-              items-center
-              justify-center
-              rounded-full
-              bg-gradient-to-br
-              md:h-10
-              md:w-10
-              from-sky-600
-              to-blue-700
-              text-xs
-              text-white
-              opacity-70
-              shadow-lg
-              shadow-sky-600/30
-              ring-2
-              ring-white/40
-              transition-all
-              duration-300
-              hover:opacity-100
-              hover:scale-110
-              hover:shadow-xl
-              hover:ring-white/60
-            "
-          >
-            <span aria-hidden="true">{isPaused ? "▶" : "❚❚"}</span>
-          </button>
-        </div>
 
       </section>
     </div>
