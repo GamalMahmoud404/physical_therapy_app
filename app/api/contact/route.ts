@@ -247,10 +247,9 @@ export async function POST(req: Request) {
       `,
     });
 
-    return NextResponse.json({
-      success: true,
-      message: "تم إرسال الرسالة بنجاح",
-    });
+    // بلا رسالة: العميل يعرض نص النجاح من قاموسه، ويقرأ message
+    // في حالة الفشل فقط
+    return NextResponse.json({ success: true });
 
   } catch (error) {
 
