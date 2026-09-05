@@ -7,7 +7,7 @@ import type { Dictionary } from "../i18n/getDictionary";
 
 const slideAssets = [
   { image: "/hero-1.jpg", link: "#contact" },
-  { image: "/1.jpg", link: "#services" },
+  { image: "/11.jpg", link: "#services" },
   { image: "/4.jpg", link: "#about" },
   { image: "/2.jpg", link: "#contact" },
 ];
