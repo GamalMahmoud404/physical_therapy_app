@@ -38,6 +38,8 @@ export default function JsonLd({
       email: clinic.email,
       inLanguage: locale,
       medicalSpecialty: "PhysicalTherapy",
+      // يربط النشاط بصفحته الرسمية على فيسبوك في نتائج البحث
+      sameAs: [clinic.facebook],
       address: {
         "@type": "PostalAddress",
         addressLocality: clinic.address.locality,

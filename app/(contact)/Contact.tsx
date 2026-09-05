@@ -8,6 +8,7 @@ import type { Dictionary } from "../i18n/getDictionary";
 
 import ContactForm from "./ContactForm";
 import { PhoneIcon, MailIcon, WhatsappIcon, FacebookIcon } from "./icons";
+import { clinic, whatsappUrl } from "../seo/site";
 
 export default function Contact({
   dict,
@@ -259,7 +260,7 @@ export default function Contact({
                 {/* ========================= */}
 
                 <a
-                  href="tel:+201024210064"
+                  href={`tel:${clinic.phone}`}
                   className="
                     mt-7
                     flex
@@ -305,7 +306,7 @@ export default function Contact({
                 {/* ========================= */}
 
                 <a
-                  href="mailto:info@example.com"
+                  href={`mailto:${clinic.email}`}
                   className="
                     mt-3
                     flex
@@ -362,7 +363,7 @@ export default function Contact({
                   <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
 
                     <a
-                      href="https://wa.me/201069064226"
+                      href={whatsappUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="
@@ -390,7 +391,7 @@ export default function Contact({
                     </a>
 
                     <a
-                      href="https://www.facebook.com/"
+                      href={clinic.facebook}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="

@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import type { Dictionary } from "../i18n/getDictionary";
+import { clinic, whatsappUrl } from "../seo/site";
 
 export default function Footer({ dict }: { dict: Dictionary }) {
   const currentYear = new Date().getFullYear();
@@ -14,9 +15,8 @@ export default function Footer({ dict }: { dict: Dictionary }) {
   ];
 
   const socialLinks = [
-    { href: "https://facebook.com", label: "Facebook", icon: "f" },
-    { href: "https://instagram.com", label: "Instagram", icon: "📷" },
-    { href: "https://whatsapp.com", label: "WhatsApp", icon: "💬" },
+    { href: clinic.facebook, label: "Facebook", icon: "f" },
+    { href: whatsappUrl, label: "WhatsApp", icon: "💬" },
   ];
 
   return (

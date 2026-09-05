@@ -24,8 +24,10 @@ export const siteUrl = (
 // ⚠️ قيم مؤقتة — استبدلها ببيانات العيادة الحقيقية
 export const clinic = {
   phone: "+201024210064",
-  whatsapp: "+201069064226",
+  whatsapp: "+201024210064",
   email: "info@example.com",
+  // بلا ‎?locale=‎: الموقع بأربع لغات، وفيسبوك يعرض لغة الزائر تلقائيًا
+  facebook: "https://www.facebook.com/dratef.mmdouhsabra",
   // العنوان اختياري في المخطط، لكن وجوده يحسّن ظهور النشاط محليًا
   address: {
     locality: "المنصورة",
@@ -33,6 +35,9 @@ export const clinic = {
     country: "EG",
   },
 };
+
+/** رابط واتساب — wa.me يقبل أرقامًا فقط بلا ‎+‎ أو مسافات */
+export const whatsappUrl = `https://wa.me/${clinic.whatsapp.replace(/\D/g, "")}`;
 
 /** صورة المشاركة الاجتماعية — نستخدم صورة الهيرو الموجودة */
 export const ogImage = {
